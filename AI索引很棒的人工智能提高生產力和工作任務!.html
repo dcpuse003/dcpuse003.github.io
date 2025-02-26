@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>AI索引很棒的人工智能提高生產力和工作任務!</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='ai索引很棒的人工智能提高生產力和工作任務'><span>AI索引很棒的人工智能提高生產力和工作任務!      </span></h1><h1 id='►ai聊天機器人'><span>►AI聊天機器人 </span></h1><h2 id='▷在線聊天機器人'><span>▷在線聊天機器人 </span></h2><ul><li><h4 id='免費的llm-api資源-或-很棒的免費chatgpt--在線llm索引'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://github.com/cheahjs/free-llm-api-resources'><span>⁠免費的LLM API資源 </span></a></strong><span>或 </span><a href='https://github.com/LiLittleCat/awesome-free-chatgpt/blob/main/README_en.md'><span>很棒的免費CHATGPT- </span></a><span>在線LLM索引 </span></h4></li><li><h4 id='chatgpt---gpt-4o--o3-mini-chatbot---r--openai----subreddit----discord'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://chatgpt.com/'><span>chatgpt </span></a></strong><span> -gpt-4O / o3-mini chatbot / </span><a href='https://www.reddit.com/r/OpenAI/'><span> r / openai </span></a><span> / </span><a href='https://www.reddit.com/r/ChatGPT/'><span> subreddit </span></a><span> / </span><a href='https://discord.com/invite/openai'><span> discord </span></a></h4></li><li><h4 id='deepseek---r1--deepseek-v3--unlimited極限點）---subreddit----discord----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://chat.deepseek.com/'><span>DeepSeek </span></a></strong><span> -R1 + DeepSeek V3 / Unlimited（極限點） / </span><a href='https://www.reddit.com/r/DeepSeek/'><span> subreddit </span></a><span> / </span><a href='https://discord.gg/Tc7c45Zzu5'><span> discord </span></a><span> / </span><a href='https://github.com/deepseek-ai'><span> github </span></a></h4></li><li><h4 id='gemini----ai-studio-或-gemma----github---google的聊天機器人---subreddit----discord'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://gemini.google.com/'><span>Gemini </span></a></strong><span> ， </span><a href='https://aistudio.google.com/app/prompts/new_chat'><span> AI Studio </span></a><span>或 </span><a href='https://ai.google.dev/gemma/'><span>Gemma </span></a><span> / </span><a href='https://github.com/google/gemma.cpp'><span> github </span></a><span> -Google的聊天機器人 / </span><a href='https://www.reddit.com/r/Bard/'><span> subreddit </span></a><span> / </span><a href='https://discord.com/invite/gemini'><span> discord </span></a></h4></li><li><h4 id='microsoft-copilot---gpt--4o--openai-o1--no-indigup---sydneyqt越獄'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://copilot.microsoft.com/'><span>Microsoft Copilot </span></a></strong><span> -GPT -4O / Openai O1 / no Indigup / </span><a href='https://github.com/juzeon/SydneyQt'><span> Sydneyqt越獄 </span></a></h4></li><li><h4 id='聊天機器人競技場---多個聊天機器人-無註冊---discord----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://lmarena.ai/'><span>聊天機器人競技場 </span></a></strong><span>- 多個聊天機器人 /無註冊 / </span><a href='https://discord.gg/6GXcFg3TH8'><span> discord </span></a><span> / </span><a href='https://github.com/lm-sys/FastChat'><span> github </span></a></h4></li><li><h4 id='mistral--多個聊天機器人--不和諧'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://chat.mistral.ai/'><span>Mistral- </span></a></strong><span>多個聊天機器人 / </span><a href='https://discord.gg/mistralai'><span>不和諧 </span></a></h4></li><li><h4 id='qwen--阿里巴巴的聊天機器人'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://chat.qwenlm.ai/'><span>⁠QWEN- </span></a></strong><span>阿里巴巴的聊天機器人 </span></h4></li><li><h4 id='claude---anthropic的聊天機器人--編號-電話-要求'><a href='https://claude.ai/'><span>Claude </span></a><span> -Anthropic的聊天機器人 / </span><a href='https://www.reddit.com/r/ClaudeAI/'><span>編號 </span></a><span>電話 </span><a href='https://discord.com/invite/zkrBaqytPW'><span>要求 </span></a></h4></li><li><h4 id='duckduckgo-ai--多個聊天機器人--o3--mini--no註冊'><a href='https://duck.ai/'><span>DuckDuckgo AI- </span></a><span>多個聊天機器人 / O3 -Mini / no註冊 </span></h4></li><li><h4 id='chatk-或-lobechat----discord----github---gpt--4o-多個聊天機器人'><a href='https://chat.oaichat.cc/'><span>CHATK </span></a><span>或 </span><a href='https://lobechat.com/chat'><span>LOBECHAT </span></a><span> / </span><a href='https://discord.gg/AYFPHvv2jT'><span> DISCORD </span></a><span> / </span><a href='https://github.com/lobehub/lobe-chat'><span> GITHUB </span></a><span> -GPT -4O /多個聊天機器人 </span></h4></li><li><h4 id='ffa聊天--gpt--4o-多個聊天機器人'><a href='https://ffa.chat/'><span>FFA聊天 </span></a><span>-GPT -4O /多個聊天機器人 </span></h4></li><li><h4 id='ai助手---多個聊天機器人-無註冊'><a href='https://aiassistantbot.pages.dev/'><span>AI助手 </span></a><span>- 多個聊天機器人 /無註冊 </span></h4></li><li><h4 id='ai-sdk--多個聊天機器人---github'><a href='https://sdk.vercel.ai/'><span>AI SDK- </span></a><span>多個聊天機器人 / </span><a href='https://github.com/vercel/ai'><span> github </span></a></h4></li><li><h4 id='解僱---多個聊天機器人'><a href='https://www.giz.ai/'><span>解僱 </span></a><span>- 多個聊天機器人 </span></h4></li><li><h4 id='scispace--無註冊）或-引起---github--研究紙聊天機器人'><a href='https://typeset.io/'><span>Scispace </span></a><span> （無註冊）或 </span><a href='https://elicit.com/'><span>引起 </span></a><span>/ </span><a href='https://github.com/elicit'><span> GitHub- </span></a><span>研究紙聊天機器人 </span></h4></li><li><h4 id='helixmind--多個聊天機器人--不和諧'><a href='https://helixmind.online/'><span>HelixMind- </span></a><span>多個聊天機器人 / </span><a href='https://discord.gg/7CmPjK87n3'><span>不和諧 </span></a></h4></li><li><h4 id='huggingchat--開源聊天機器人---github'><a href='https://huggingface.co/chat/'><span>Huggingchat- </span></a><span>開源聊天機器人 / </span><a href='https://github.com/huggingface/chat-ui'><span> github </span></a></h4></li><li><h4 id='不介質---多個聊天機器人--不和諧'><a href='https://infermatic.ai/'><span>不介質 </span></a><span>- 多個聊天機器人 / </span><a href='https://discord.gg/9GUXmDx9GF'><span>不和諧 </span></a></h4></li><li><h4 id='lollms-web-ui--多個聊天機器人--不和諧'><a href='https://github.com/ParisNeo/lollms-webui'><span>Lollms Web UI- </span></a><span>多個聊天機器人 / </span><a href='https://discord.gg/4rR282WJb6'><span>不和諧 </span></a></h4></li><li><h4 id='電子中心---多個聊天機器人--不和諧'><a href='https://www.electronhub.top/'><span>電子中心 </span></a><span>- 多個聊天機器人 / </span><a href='https://discord.com/invite/apUUqbxCBQ'><span>不和諧 </span></a></h4></li><li><h4 id='feynchat---gpt--4o-多個聊天機器人-電話需要'><a href='https://feyn.chat/'><span>feynchat </span></a><span> -GPT -4O /多個聊天機器人 /電話＃需要 </span></h4></li><li><h4 id='nexusai---gpt-4o--o1-preiview--o3-mini---discord'><a href='https://www.nexusmind.tech/'><span>Nexusai </span></a><span> -GPT-4O / O1-preiview / O3-Mini / </span><a href='https://discord.com/invite/sk8eddGwmP'><span> Discord </span></a></h4></li><li><h4 id='--heckai---gpt--4o--depepek-v3'><a href='https://heck.ai/'><span>⁠ -heck.ai </span></a><span> -GPT -4O + Depepek V3 </span></h4></li><li><h4 id='lutton---gpt--4--英文注-無註冊---android----ios'><a href='https://wrtn.ai/'><span>Lutton </span></a><span> -GPT -4 / </span><a href='https://github.com/fmhy/FMHY/wiki/FMHY‐Notes.md#lutton-note'><span>英文注 </span></a><span>/無註冊 / </span><a href='https://play.google.com/store/apps/details?id=com.wrtn.app'><span> Android </span></a><span> / </span><a href='https://apps.apple.com/us/app/뤼튼-모두를-위한-ai-포털/id6448556170'><span> ios </span></a></h4></li><li><h4 id='nextchat--多個聊天機器人--實例---github'><a href='https://nextchat.dev/'><span>NextChat- </span></a><span>多個聊天機器人 / </span><a href='https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage#wiki_nextchat_instances'><span>實例 </span></a><span>/ </span><a href='https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web'><span> github </span></a></h4></li><li><h4 id='調音聊天---每個聊天機器人--24個郵件-無註冊-不-偶然性'><a href='https://tunehq.ai/tune-chat'><span>調音聊天 </span></a><span>- 每個聊天機器人 / 24個郵件 /無註冊 /不 </span><a href='https://discord.com/invite/KhF38hrAJ2'><span>偶然性 </span></a></h4></li><li><h4 id='freegpt4--免費gpt--4方法-無註冊'><a href='https://rentry.org/freegpt4'><span>FreeGPT4- </span></a><span>免費GPT -4方法 /無註冊 </span></h4></li><li><h4 id='kimi---kiwi-15聊天機器人'><a href='https://kimi.ai/'><span>Kimi </span></a><span> -Kiwi 1.5聊天機器人 </span></h4></li><li><h4 id='groq---llama-3和混音聊天機器人--不和諧'><a href='https://groq.com/'><span>GROQ </span></a><span> -LLAMA 3和混音聊天機器人 / </span><a href='https://discord.gg/invite/groq'><span>不和諧 </span></a></h4></li><li><h4 id='sambanova---llama-31-輸入虛假信息'><a href='https://sambanova.ai/'><span>SAMBANOVA </span></a><span> -LLAMA 3.1 /輸入虛假信息 </span></h4></li><li><h4 id='lambda-chat---llama-31-無限-無註冊'><a href='https://lambda.chat/chatui/'><span>Lambda Chat </span></a><span> -Llama 3.1 /無限 /無註冊 </span></h4></li><li><h4 id='maisa---vinci-kpu聊天機器人'><a href='https://maisa.ai/'><span>Maisa </span></a><span> -Vinci KPU聊天機器人 </span></h4></li><li><h4 id='grok---xcom-聊天-機器人--不和諧'><a href='https://grok.com/'><span>grok </span></a><span> -x.com </span><a href='http://X.com'><span>聊天 </span></a><span>機器人 / </span><a href='https://discord.com/invite/x-ai'><span>不和諧 </span></a></h4></li><li><h4 id='meta-ai---llama-3-chatbot'><a href='https://www.meta.ai/'><span>META AI </span></a><span> -LLAMA 3 CHATBOT </span></h4></li><li><h4 id='nvidia-nim--駱駝3聊天機器人-無註冊'><a href='https://build.nvidia.com/'><span>NVIDIA NIM- </span></a><span>駱駝3聊天機器人 /無註冊 </span></h4></li><li><h4 id='pi--拐點ai的聊天機器人'><a href='https://pi.ai/'><span>pi- </span></a><span>拐點AI的聊天機器人 </span></h4></li><li><h4 id='reka---reka的聊天機器人-無註冊--不和諧'><a href='https://www.reka.ai/'><span>REKA </span></a><span> -REKA的聊天機器人 /無註冊 / </span><a href='https://discord.gg/jtjNSD52mf'><span>不和諧 </span></a></h4></li><li><h4 id='poe--多個聊天機器人--150每日-電話必需--不和諧'><a href='https://poe.com/'><span>POE- </span></a><span>多個聊天機器人 / 150每日 /電話＃必需 / </span><a href='https://discord.com/invite/joinpoe'><span>不和諧 </span></a></h4></li><li><h4 id='privategpt----discord----github---筆記本電腦---onyx----discord----github-或-docsgpt----discord----github--文檔聊天機器人-筆記訪問'><a href='https://privategpt.dev/'><span>privategpt </span></a><span> / </span><a href='https://discord.com/invite/bK6mRVpErU'><span> discord </span></a><span> / </span><a href='https://github.com/zylon-ai/private-gpt'><span> github </span></a><span> ， </span><a href='https://notebooklm.google/'><span>筆記本電腦 </span></a><span>， </span><a href='https://www.onyx.app/'><span> onyx </span></a><span> / </span><a href='https://discord.gg/VKwU6Wr2'><span> discord </span></a><span> / </span><a href='https://github.com/onyx-dot-app/onyx'><span> github </span></a><span>或 </span><a href='https://www.docsgpt.cloud/'><span>docsgpt </span></a><span> / </span><a href='https://discord.gg/VKwU6Wr2'><span> discord </span></a><span> / </span><a href='https://github.com/arc53/DocsGPT'><span> github- </span></a><span>文檔聊天機器人 /筆記訪問 </span></h4></li><li><h4 id='screenpipe---ai屏幕錄音機-無註冊---discord----github'><a href='https://screenpi.pe/'><span>ScreenPipe </span></a><span> -AI屏幕錄音機 /無註冊 / </span><a href='https://discord.gg/dU9EBuw7Uq'><span> Discord </span></a><span> / </span><a href='https://github.com/mediar-ai/screenpipe'><span> github </span></a></h4></li><li><h4 id='leon---ai助手---discord----github'><a href='https://getleon.ai/'><span>Leon </span></a><span> -AI助手 / </span><a href='https://discord.gg/MNQqqKg'><span> DISCORD </span></a><span> / </span><a href='https://github.com/leon-ai/leon'><span> GITHUB </span></a></h4></li></ul><hr /><h2 id='▷ai搜索引擎'><span>▷AI搜索引擎 </span></h2><ul><li><h4 id='很棒的ai-web搜索--ai搜索引擎索引'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://github.com/felladrin/awesome-ai-web-search'><span>很棒的AI Web搜索 </span></a></strong><span>-AI搜索引擎索引 </span></h4></li><li><h4 id='困惑----ai搜索引擎--增強--開源模型--不和諧'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg2" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.perplexity.ai/'><span>困惑 </span></a></strong><span>-  AI搜索引擎 / </span><a href='https://www.cplx.app/'><span>增強 </span></a><span>/ </span><a href='https://labs.perplexity.ai/'><span>開源模型 </span></a><span>/ </span><a href='https://discord.com/invite/perplexity-ai'><span>不和諧 </span></a></h4></li><li><h4 id='wolframalpha--可搜索的知識庫-無註冊--移動'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.wolframalpha.com/'><span>Wolframalpha- </span></a></strong><span>可搜索的知識庫 /無註冊 / </span><a href='https://rentry.co/FMHYBase64#wolfram-mobile'><span>移動 </span></a></h4></li><li><h4 id='scira---ai搜索引擎-無註冊---github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://scira.app/'><span>Scira </span></a></strong><span> -AI搜索引擎 /無註冊 / </span><a href='https://github.com/zaidmukaddam/scira'><span> GitHub </span></a><span> </span></h4></li><li><h4 id='您----ai搜索引擎-註冊需要---discord----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://you.com/'><span>您 </span></a></strong><span>-  AI搜索引擎 /註冊需要 / </span><a href='https://discord.com/invite/youdotcom'><span> Discord </span></a><span> / </span><a href='https://github.com/You-OpenSource'><span> github </span></a><span> </span></h4></li><li><h4 id='hyperspace---p2p-ai網絡-無註冊--網絡應用---2----github'><a href='https://hyper.space/'><span>Hyperspace </span></a><span> -P2P AI網絡 /無註冊 / </span><a href='https://play.hyper.space/'><span>網絡應用 </span></a><span>， </span><a href='https://compute.hyper.space/'><span> 2 </span></a><span> / </span><a href='https://github.com/hyperspaceai'><span> github </span></a></h4></li><li><h4 id='phind--駱駝搜索引擎-無註冊--不和諧'><a href='https://www.phind.com/'><span>phind- </span></a><span>駱駝搜索引擎 /無註冊 / </span><a href='https://discord.gg/S25yW8TebZ'><span>不和諧 </span></a></h4></li><li><h4 id='形態----ai搜索引擎-無註冊--不和諧'><a href='https://www.morphic.sh/'><span>形態 </span></a><span>-  AI搜索引擎 /無註冊 / </span><a href='https://discord.gg/zRxaseCuGq'><span>不和諧 </span></a></h4></li><li><h4 id='條目---下載引擎--sigpo'><a href='https://komo.ai/'><span>條目 </span></a><span>- 下載引擎 / sigpo </span></h4></li><li><h4 id='felo---ai搜索引擎-無註冊'><a href='https://felo.ai/'><span>⁠FELO </span></a><span> -AI搜索引擎 /無註冊 </span></h4></li><li><h4 id='searcai---ai搜索引擎-無註冊'><a href='https://searc.ai/'><span>⁠searc.ai- </span></a><span> AI搜索引擎 /無註冊 </span></h4></li><li><h4 id='isouchat---ai搜索引擎-無註冊---github'><a href='https://isou.chat/'><span>isou.chat </span></a><span> -ai搜索引擎 /無註冊 / </span><a href='https://github.com/yokingma/search_with_ai'><span> github </span></a></h4></li><li><h4 id='hika---ai搜索引擎-無註冊--不和諧'><a href='https://hika.fyi/'><span>⁠Hika </span></a><span> -AI搜索引擎 /無註冊 / </span><a href='https://discord.gg/tUATkScUue'><span>不和諧 </span></a></h4></li><li><h4 id='khoj--註冊需要---discord----github'><a href='https://khoj.dev/'><span>khoj- </span></a><span>註冊需要 / </span><a href='https://discord.gg/BDgyabRM6e'><span> DISCORD </span></a><span> / </span><a href='https://github.com/khoj-ai/khoj'><span> GITHUB </span></a></h4></li><li><h4 id='ayesoul---ai搜索引擎-無註冊'><a href='https://ayesoul.com/'><span>Ayesoul </span></a><span> -AI搜索引擎 /無註冊 </span></h4></li><li><h4 id='venice---ai搜索引擎-無註冊'><a href='https://venice.ai/'><span>Venice </span></a><span> -AI搜索引擎 /無註冊 </span></h4></li><li><h4 id='uncovr---ai搜索引擎-無註冊--不和諧'><a href='https://uncovr.app/'><span>UNCOVR </span></a><span> -AI搜索引擎 /無註冊 / </span><a href='https://discord.gg/a4gDaVWceP'><span>不和諧 </span></a></h4></li><li><h4 id='exa---ai搜索引擎-無註冊--不和諧'><a href='https://exa.ai/'><span>EXA </span></a><span> -AI搜索引擎 /無註冊 / </span><a href='https://discord.gg/HCShtBqbfV'><span>不和諧 </span></a></h4></li><li><h4 id='lepton搜索--ai搜索引擎-無註冊---github'><a href='https://search.lepton.run/'><span>Lepton搜索 </span></a><span>-AI搜索引擎 /無註冊 / </span><a href='https://github.com/leptonai/search_with_lepton'><span> GitHub </span></a></h4></li><li><h4 id='pelpexixa---ai搜索引擎-自托--不和諧'><a href='https://github.com/ItzCrazyKns/Perplexica'><span>PELPEXIXA </span></a><span> -AI搜索引擎 /自托 / </span><a href='https://discord.gg/26aArMy8tT'><span>不和諧 </span></a></h4></li></ul><hr /><h2 id='▷自我託管工具'><span>▷自我託管工具 </span></h2><ul><li><h4 id='jan--自主--不和諧---github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://jan.ai/'><span>Jan- </span></a></strong><span>自主 / </span><a href='https://discord.com/invite/FTk2MvZwJH'><span>不和諧 </span></a><span>/ </span><a href='https://github.com/janhq/jan'><span> github </span></a><span> </span></h4></li><li><h4 id='sillytavern--自託管界面---discord----subreddit----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://docs.sillytavern.app/'><span>sillytavern- </span></a></strong><span>自託管界面 / </span><a href='https://discord.gg/sillytavern'><span> Discord </span></a><span> / </span><a href='https://www.reddit.com/r/SillyTavernAI/'><span> subreddit </span></a><span> / </span><a href='https://github.com/SillyTavern/SillyTavern'><span> github </span></a><span> </span></h4></li><li><h4 id='打開webui--自託管界面---discord----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://openwebui.com/'><span>打開webui- </span></a></strong><span>自託管界面 / </span><a href='https://discord.gg/5rJgQTnV4s'><span> DISCORD </span></a><span> / </span><a href='https://github.com/open-webui/open-webui'><span> GITHUB </span></a><span> </span></h4></li><li><h4 id='llamacpp--基於自宿主變壓器的llm--指南'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/ggerganov/llama.cpp'><span>Llama.cpp- </span></a></strong><span>基於自宿主變壓器的LLM / </span><a href='https://rentry.org/llama-mini-guide'><span>指南 </span></a><span> </span></h4></li><li><h4 id='koboldcpp---llamacpp-with-api--gui---rocm----colab'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/LostRuins/koboldcpp'><span>koboldcpp- </span></a></strong><span> llama.cpp with api + gui / </span><a href='https://github.com/YellowRoseCx/koboldcpp-rocm'><span> rocm </span></a><span> / </span><a href='https://colab.research.google.com/github/LostRuins/koboldcpp/blob/concedo/colab.ipynb'><span> colab  </span></a><span> </span></h4></li><li><h4 id='pinokio--單擊ai型號安裝程序---dissord----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://pinokio.computer/'><span>Pinokio- </span></a></strong><span>單擊AI型號安裝程序 / </span><a href='https://discord.gg/TQdNwadtE4'><span> DISSORD </span></a><span> / </span><a href='https://github.com/pinokiocomputer/pinokio'><span> GITHUB </span></a><span> </span></h4></li><li><h4 id='oobabooga--自助型號---colab----subreddit----discord'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/oobabooga/text-generation-webui'><span>OOBABOOGA- </span></a></strong><span>自助型號 / </span><a href='https://colab.research.google.com/github/pcrii/Philo-Colab-Collection/blob/main/4bit_TextGen_Gdrive.ipynb'><span> COLAB </span></a><span> / </span><a href='https://www.reddit.com/r/Oobabooga/'><span> SUBREDDIT </span></a><span> / </span><a href='https://discord.gg/jwZCF2dPQN'><span> DISCORD </span></a><span> </span></h4></li><li><h4 id='aphrodite引擎-一起使用llms---與koboldopenai-api--colab----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://aphrodite.pygmalion.chat/'><span>Aphrodite引擎 </span></a></strong><span>一起使用LLMS </span><a href='https://colab.research.google.com/github/AlpinDale/misc-scripts/blob/main/Aphrodite.ipynb'><span>- 與Kobold＆OpenAI API / COLAB </span></a><span> / </span><a href='https://github.com/PygmalionAI/aphrodite-engine'><span> GITHUB </span></a><span> </span></h4></li><li><h4 id='花瓣---自主--不和諧---github'><a href='https://petals.dev/'><span>花瓣 </span></a><span>- 自主 / </span><a href='https://discord.gg/D9MwApKgWa'><span>不和諧 </span></a><span>/ </span><a href='https://github.com/bigscience-workshop/petals'><span> github </span></a><span> </span></h4></li><li><h4 id='ollama--自主--不和諧---github'><a href='https://ollama.com/'><span>Ollama- </span></a><span>自主 / </span><a href='https://discord.com/invite/ollama'><span>不和諧 </span></a><span>/ </span><a href='https://github.com/ollama/ollama'><span> github  </span></a></h4></li><li><h4 id='lm-studio--自主---discord----github'><a href='https://lmstudio.ai/'><span>LM Studio- </span></a><span>自主 / </span><a href='https://discord.gg/aPQfnNkxGC'><span> DISCORD </span></a><span> / </span><a href='https://github.com/lmstudio-ai'><span> GITHUB </span></a></h4></li><li><h4 id='任何東西---自主'><a href='https://anythingllm.com/'><span>任何東西 </span></a><span>- 自主 </span></h4></li><li><h4 id='librechat--自託管--不和諧---github'><a href='https://librechat.ai/'><span>librechat- </span></a><span>自託管 / </span><a href='https://discord.com/invite/CEe6vDg9Ky'><span>不和諧 </span></a><span>/ </span><a href='https://github.com/danny-avila/LibreChat'><span> github </span></a></h4></li><li><h4 id='gpt4all--自託管---github----discord'><a href='https://www.nomic.ai/gpt4all'><span>GPT4ALL- </span></a><span>自託管 / </span><a href='https://github.com/nomic-ai/gpt4all'><span> github </span></a><span> / </span><a href='https://discord.com/invite/myY5YDR8z8'><span> Discord </span></a></h4></li><li><h4 id='llamafile--運行單個文件--不和諧的llm'><a href='https://github.com/Mozilla-Ocho/llamafile'><span>Llamafile- </span></a><span>運行單個文件 / </span><a href='https://discord.gg/YuMNeuKStr'><span>不和諧的LLM </span></a></h4></li><li><h4 id='初學者的生成ai--生成的ai指南'><a href='https://microsoft.github.io/generative-ai-for-beginners/'><span>初學者的生成AI- </span></a><span>生成的AI指南 </span></h4></li></ul><hr /><h2 id='▷角色扮演聊天機器人'><span>▷角色扮演聊天機器人 </span></h2><ul><li><h4 id='sukino--findings---ai角色扮演資源'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://rentry.org/Sukino-Findings'><span>sukino -findings </span></a></strong><span> -AI角色扮演資源 </span></h4></li><li><h4 id='besterp--角色扮演llm列表'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://besterp.ai/'><span>Besterp- </span></a></strong><span>角色扮演LLM列表 </span></h4></li><li><h4 id='pygmalionai--自託管角色扮演型號--資源--不和諧---telegram----subreddit----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://pygmalion.chat/'><span>pygmalionai- </span></a></strong><span>自託管角色扮演型號 / </span><a href='https://rentry.co/PygmalionLinks'><span>資源 </span></a><span>/ </span><a href='https://discord.com/invite/pygmalionai'><span>不和諧 </span></a><span>/ </span><a href='https://t.me/pygmalionai'><span> telegram </span></a><span> / </span><a href='https://www.reddit.com/r/PygmalionAI/'><span> subreddit </span></a><span> / </span><a href='https://github.com/PygmalionAI'><span> github </span></a><span> </span></h4></li><li><h4 id='致電annie---gpt-35聊天機器人使用實時語音和視頻--不和諧'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://callannie.ai/'><span>致電Annie </span></a></strong><span> -GPT-3.5聊天機器人使用實時語音和視頻 / </span><a href='https://discord.gg/Rfbzet5R3v'><span>不和諧 </span></a></h4></li><li><h4 id='角色----roleplaying-chatbots--extract--discord--'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://character.ai/'><span>角色 </span></a></strong><span> - Roleplaying Chatbots / </span><a href='https://rentry.co/reverse-cAI'><span>Extract</span></a><span> / </span><a href='https://discord.com/invite/characterai'><span>Discord</span></a><span> / </span><a href='https://www.reddit.com/r/CharacterAI/'><span>。 </span></a></h4></li><li><h4 id='星星httpsbayimgcomd172c64454c668e436b450093899ead0a9540788jpg-flowgpt--角色扮演聊天機器人-一些nsfw---discord'><span>![：星星：]</span><a href='https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg' target='_blank' class='url'>https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg</a><span>) </span><strong><a href='https://flowgpt.com/'><span>Flowgpt- </span></a></strong><span>角色扮演聊天機器人 /一些NSFW / </span><a href='https://discord.com/invite/tWZGzcpTkf'><span> DISCORD </span></a></h4></li><li><h4 id='機器人創建指南---角色創建指南'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://wikia.schneedc.com/bot-creation/intro'><span>機器人創建指南 </span></a></strong><span>- 角色創建指南 </span></h4></li><li><h4 id='chub--角色卡-一些nsfw---discord----subreddit----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.chub.ai/'><span>chub- </span></a></strong><span>角色卡 /一些NSFW / </span><a href='https://discord.gg/chubai'><span> DISCORD </span></a><span> / </span><a href='https://www.reddit.com/r/Chub_AI/'><span> SUBREDDIT </span></a><span> / </span><a href='https://github.com/CharHubAI'><span> GITHUB </span></a></h4></li><li><h4 id='llama--sillytavern---llama--sillytavern角色扮演設置指南-無註冊'><a href='https://rentry.org/llama_v2_sillytavern'><span>Llama + sillytavern </span></a><span> -Llama + sillytavern角色扮演設置指南 /無註冊 </span></h4></li><li><h4 id='koboldai---gui用於角色扮演聊天機器人-無註冊---discord----github'><a href='https://koboldai.com/'><span>koboldai- </span></a><span> GUI用於角色扮演聊天機器人 /無註冊 / </span><a href='https://discord.com/invite/XuQWadgU9k'><span> discord </span></a><span> / </span><a href='https://github.com/henk717/KoboldAI'><span> github </span></a></h4></li><li><h4 id='4thwall-ai--角色扮演聊天機器人---discord----subreddit'><a href='https://beta.4wall.ai/'><span>4THWALL AI- </span></a><span>角色扮演聊天機器人 / </span><a href='https://discord.com/invite/4wallai'><span> Discord </span></a><span> / </span><a href='https://www.reddit.com/r/4WallAI/'><span> subreddit </span></a></h4></li><li><h4 id='janitorai--角色扮演聊天機器人-一些nsfw'><a href='https://janitorai.com/'><span>Janitorai- </span></a><span>角色扮演聊天機器人 /一些NSFW </span></h4></li><li><h4 id='fictionlab--角色扮演-故事聊天機器人--不和諧'><a href='https://fictionlab.ai/'><span>FictionLab- </span></a><span>角色扮演 /故事聊天機器人 / </span><a href='https://discord.com/invite/SKcb2C7HjH'><span>不和諧 </span></a></h4></li><li><h4 id='tavernai--角色扮演-故事聊天機器人---colab----discord----github'><a href='https://tavernai.net/'><span>tavernai- </span></a><span>角色扮演 /故事聊天機器人 / </span><a href='https://colab.research.google.com/github/vrihatgan/TavernAI/blob/main/colab/colab.ipynb'><span> colab </span></a><span> / </span><a href='https://discord.gg/zmK2gmr45t'><span> discord </span></a><span> / </span><a href='https://github.com/TavernAI/TavernAI'><span> github </span></a></h4></li><li><h4 id='ai地牢---角色扮演-故事-機器人-無註冊--subreddit---discord-聊天'><a href='https://aidungeon.com/'><span>AI地牢 </span></a><span>- 角色扮演 /故事 </span><a href='https://www.reddit.com/r/AIDungeon/'><span>機器人 /無註冊 / subreddit </span></a><span> / discord </span><a href='https://discord.com/invite/HB2YBZYjyf'><span>聊天 </span></a></h4></li><li><h4 id='spellbound--角色扮演-故事聊天機器人-無註冊--不和諧'><a href='https://www.tryspellbound.com/'><span>Spellbound- </span></a><span>角色扮演 /故事聊天機器人 /無註冊 / </span><a href='https://discord.com/invite/spellbound'><span>不和諧 </span></a></h4></li><li><h4 id='kajiwoto----miku--無註冊）---discord-或-agnai----discord---chatbot-builders'><a href='https://kajiwoto.ai/'><span>Kajiwoto </span></a><span> ， </span><a href='https://docs.miku.gg/'><span> Miku </span></a><span> （無註冊） / </span><a href='https://discord.gg/3XPdpUdGgV'><span> Discord </span></a><span>或 </span><a href='https://agnai.chat/'><span>Agnai </span></a><span> / </span><a href='https://discord.com/invite/DAn38sA8Qj'><span> Discord </span></a><span> -Chatbot Builders </span></h4></li></ul><hr /><h2 id='▷編碼ai'><span>▷編碼AI </span></h2><ul><li><h4 id='evalplus排行榜---github----webdevarena----aider-llm排行榜-或-大型代碼模型排行榜---編碼ai排行榜'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://evalplus.github.io/leaderboard.html'><span>EvalPlus排行榜 </span></a></strong><span>/ </span><a href='https://github.com/evalplus/evalplus'><span> GitHub </span></a><span> ， </span><a href='https://web.lmarena.ai/'><span> ⁠WebdevArena </span></a><span> ， </span><a href='https://aider.chat/docs/leaderboards/'><span> Aider LLM排行榜 </span></a><span>或 </span><a href='https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard'><span>大型代碼模型排行榜 </span></a><span>- 編碼AI排行榜 </span></h4></li><li><h4 id='很棒的ai代理---編碼-編程ais---discord'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://github.com/e2b-dev/awesome-ai-agents'><span>很棒的AI代理 </span></a></strong><span>- 編碼 /編程AIS / </span><a href='https://discord.gg/U7KEcGErtQ'><span> DISCORD </span></a></h4></li><li><h4 id='編碼---編碼ai-無註冊---subreddit----discord'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://codeium.com/'><span>編碼 </span></a></strong><span>- 編碼AI /無註冊 / </span><a href='https://www.reddit.com/r/Codeium/'><span> subreddit </span></a><span> / </span><a href='https://discord.com/invite/3XFf78nAx5'><span> Discord </span></a></h4></li><li><h4 id='零件---免費-無註冊--不和諧的多llm編碼ai--gpt-4--4o'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://pieces.app/'><span>零件 </span></a></strong><span>- 免費 /無註冊 / </span><a href='https://discord.gg/getpieces'><span>不和諧的多LLM編碼AI / GPT-4 / 4O </span></a></h4></li><li><h4 id='wdtcd----簡單的代碼說明-無註冊'><a href='https://whatdoesthiscodedo.com/'><span>WDTCD？ </span></a><span> - 簡單的代碼說明 /無註冊 </span></h4></li><li><h4 id='源sourcery---自動扣除請求評論---github'><a href='https://sourcery.ai/'><span>源(sourcery) </span></a><span>- 自動扣除請求評論 / </span><a href='https://github.com/sourcery-ai/sourcery'><span> github </span></a></h4></li><li><h4 id='devv--編碼搜索引擎-無註冊---github'><a href='https://devv.ai/'><span>DEVV- </span></a><span>編碼搜索引擎 /無註冊 / </span><a href='https://github.com/devv-ai/devv'><span> github </span></a></h4></li><li><h4 id='telosys--代碼生成器-無註冊--源代碼'><a href='https://www.telosys.org/'><span>TELOSYS- </span></a><span>代碼生成器 /無註冊 / </span><a href='https://www.telosys.org/sources.html'><span>源代碼 </span></a></h4></li><li><h4 id='llama編碼器---代碼生成器-無註冊---github'><a href='https://llamacoder.together.ai/'><span>LLAMA編碼器 </span></a><span>- 代碼生成器 /無註冊 / </span><a href='https://github.com/Nutlope/llamacoder'><span> GitHub </span></a></h4></li><li><h4 id='imgcook--編碼ai-無註冊---github'><a href='https://imgcook.com/'><span>IMGCOOK- </span></a><span>編碼AI /無註冊 / </span><a href='https://github.com/imgcook/imgcook'><span> GitHub </span></a></h4></li><li><h4 id='supermaven--編碼ai-無註冊--不和諧'><a href='https://supermaven.com/'><span>Supermaven- </span></a><span>編碼AI /無註冊 / </span><a href='https://discord.com/invite/QQpqBmQH3w'><span>不和諧 </span></a></h4></li><li><h4 id='科迪---編碼ai---discord----github'><a href='https://sourcegraph.com/cody'><span>科迪 </span></a><span>- 編碼AI / </span><a href='https://discord.gg/s2qDtYGnAE'><span> Discord </span></a><span> / </span><a href='https://github.com/sourcegraph/cody'><span> github </span></a></h4></li><li><h4 id='openhands--編碼ai---discord----github'><a href='https://www.all-hands.dev/'><span>OpenHands- </span></a><span>編碼AI / </span><a href='https://discord.gg/ESHStjSjD4'><span> DISCORD </span></a><span> / </span><a href='https://github.com/All-Hands-AI/OpenHands'><span> GITHUB </span></a></h4></li><li><h4 id='繼續---編碼ai---discord----github'><a href='https://continue.dev/'><span>繼續 </span></a><span>- 編碼AI / </span><a href='https://discord.com/invite/EfJEfdFnDQ'><span> Discord </span></a><span> / </span><a href='https://github.com/continuedev/continue'><span> github </span></a></h4></li><li><h4 id='github副駕駛---編碼ai'><a href='https://github.com/features/copilot'><span>github副駕駛 </span></a><span>- 編碼AI </span></h4></li><li><h4 id='trae--編碼ai'><a href='https://www.trae.ai/'><span>trae- </span></a><span>編碼AI </span></h4></li><li><h4 id='cline--編碼ai---discord'><a href='https://github.com/cline/cline'><span>Cline- </span></a><span>編碼AI / </span><a href='https://discord.gg/cline'><span> DISCORD </span></a></h4></li><li><h4 id='digi--帶有ai'><a href='https://www.qodo.ai/'><span>digi- </span></a><span>帶有AI </span></h4></li><li><h4 id='blackbox--編碼ai-無註冊'><a href='https://www.blackbox.ai/'><span>BlackBox- </span></a><span>編碼AI /無註冊 </span></h4></li><li><h4 id='denigma--編碼ai-無註冊--不和諧'><a href='https://denigma.app/'><span>DENIGMA- </span></a><span>編碼AI /無註冊 / </span><a href='https://discord.gg/mZx4REBvKm'><span>不和諧 </span></a></h4></li><li><h4 id='幫助---終端編碼ai---discord----github'><a href='https://aider.chat/'><span>幫助 </span></a><span>- 終端編碼AI / </span><a href='https://discord.gg/Tv2uQnR88V'><span> Discord </span></a><span> / </span><a href='https://github.com/Aider-AI/aider'><span> github </span></a></h4></li><li><h4 id='codacy--固定ai---github的代碼'><a href='https://www.codacy.com/'><span>CODACY- </span></a><span>固定AI / </span><a href='https://github.com/codacy'><span> github的代碼 </span></a></h4></li><li><h4 id='打開解釋器---本地運行代碼-無註冊--不和諧'><a href='https://github.com/OpenInterpreter/open-interpreter'><span>打開解釋器 </span></a><span>- 本地運行代碼 /無註冊 / </span><a href='https://discord.gg/Hvz9Axh84z'><span>不和諧 </span></a></h4></li><li><h4 id='v0--網站代碼--不和諧的文本'><a href='https://v0.dev/'><span>v0- </span></a><span>網站代碼 / </span><a href='https://discord.gg/4ECCp2V5y9'><span>不和諧的文本 </span></a></h4></li><li><h4 id='boltnew---web-app-builder---discord----github'><a href='https://bolt.new/'><span>Bolt.New- </span></a><span> Web App Builder / </span><a href='https://discord.com/invite/stackblitz'><span> Discord </span></a><span> / </span><a href='https://github.com/stackblitz/bolt.new'><span> github </span></a></h4></li><li><h4 id='片段---應用程序構建器---discord----github'><a href='https://fragments.e2b.dev/'><span>片段 </span></a><span>- 應用程序構建器 / </span><a href='https://discord.com/invite/U7KEcGErtQ'><span> Discord </span></a><span> / </span><a href='https://github.com/e2b-dev'><span> github </span></a></h4></li><li><h4 id='composio--將工具添加到編碼ai---discord----github'><a href='https://composio.dev/'><span>COMPOSIO- </span></a><span>將工具添加到編碼AI / </span><a href='https://discord.com/invite/cNruWaAhQk'><span> Discord </span></a><span> / </span><a href='https://github.com/ComposioHQ/composio'><span> github </span></a></h4></li></ul><hr /><h1 id='►ai工具'><span>►AI工具 </span></h1><ul><li><h4 id='sindresorhus的很棒的changpt-或-很棒的chatgpt---ai資源'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://github.com/sindresorhus/awesome-chatgpt'><span>Sindresorhus的很棒的changpt </span></a></strong><span>或 </span><a href='https://github.com/uhub/awesome-chatgpt'><span>很棒的chatgpt </span></a><span> -AI資源 </span></h4></li><li><h4 id='每個chatgpt-gui---changpt-gui指數'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://github.com/billmei/every-chatgpt-gui'><span>每個Chatgpt GUI- </span></a></strong><span> changpt GUI指數 </span></h4></li><li><h4 id='ai-api工具'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/dev-tools/#wiki_.25B7_api_tools'><span>AI API工具 </span></a></strong><span> </span></h4></li><li><h4 id='chatpdf--無註冊）或-askyourpdf--將書籍變成聊天機器人'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.chatpdf.com/'><span>chatpdf </span></a></strong><span> （無註冊）或 </span><a href='https://askyourpdf.com/'><span>askyourpdf- </span></a><span>將書籍變成聊天機器人  </span></h4></li><li><h4 id='tldraw計算機---創建組件工作流以生成或轉換數據---discord----github'><a href='https://computer.tldraw.com/'><span>⁠tldraw計算機 </span></a><span>- 創建組件工作流以生成或轉換數據 / </span><a href='https://discord.com/invite/SBBEVCA4PG'><span> Discord </span></a><span> / </span><a href='https://github.com/tldraw/tldraw'><span> github </span></a></h4></li><li><h4 id='chatgpt框-或-keepchatgpt--擴展'><a href='https://github.com/josStorer/chatGPTBox'><span>chatgpt框 </span></a><span>或 </span><a href='https://github.com/xcanwin/KeepChatGPT/blob/main/docs/README_EN.md'><span>keepchatgpt- </span></a><span>擴展 </span></h4></li><li><h4 id='tgpt---ai終端聊天機器人'><a href='https://github.com/aandrew-me/tgpt'><span>TGPT </span></a><span> -AI終端聊天機器人 </span></h4></li><li><h4 id='llm---llm-cli---discord----github'><a href='https://llm.datasette.io/'><span>LLM </span></a><span> -LLM CLI / </span><a href='https://discord.com/invite/RKAH4b8TvE'><span> DISCORD </span></a><span> / </span><a href='https://github.com/simonw/llm'><span> GITHUB </span></a></h4></li><li><h4 id='gpt4free--桌面應用程序--電報'><a href='https://github.com/xtekky/gpt4free'><span>GPT4FREE- </span></a><span>桌面應用程序 / </span><a href='https://telegram.me/g4f_channel'><span>電報 </span></a></h4></li><li><h4 id='msty--桌面應用程序--不和諧'><a href='https://msty.app/'><span>MSTY- </span></a><span>桌面應用程序 / </span><a href='https://discord.gg/2QBw6XxkCC'><span>不和諧 </span></a></h4></li><li><h4 id='lobechat---desktop-app---discord----github'><a href='https://lobechat.com/chat'><span>Lobechat </span></a><span> -Desktop App / </span><a href='https://discord.gg/AYFPHvv2jT'><span> Discord </span></a><span> / </span><a href='https://github.com/lobehub/lobe-chat'><span> github </span></a></h4></li><li><h4 id='noi--桌面應用---discord----github'><a href='https://noi.nofwl.com/'><span>NOI- </span></a><span>桌面應用 / </span><a href='https://discord.gg/kq2HXcpJSQ'><span> Discord </span></a><span> / </span><a href='https://github.com/lencx/Noi'><span> github </span></a></h4></li><li><h4 id='聊天機器人ui--桌面應用程序---github'><a href='https://chatbotui.com/'><span>聊天機器人UI- </span></a><span>桌面應用程序 / </span><a href='https://github.com/mckaywrigley/chatbot-ui'><span> github </span></a></h4></li><li><h4 id='chatrtx--桌面應用--rtx-30系列gpu'><a href='https://www.nvidia.com/en-us/ai-on-rtx/chatrtx/'><span>chatrtx- </span></a><span>桌面應用 / RTX 30+系列GPU </span></h4></li><li><h4 id='chatgpt-demod--塊chatgpt-mederation檢查'><a href='https://github.com/4as/ChatGPT-DeMod'><span>chatgpt demod- </span></a><span>塊chatgpt Mederation檢查 </span></h4></li><li><h4 id='parallelgpt--數據處理ai---discord'><a href='https://www.parallelgpt.ai/'><span>ParallelGPT- </span></a><span>數據處理AI / </span><a href='https://discord.com/invite/fjBugmvzZP'><span> DISCORD </span></a></h4></li><li><h4 id='concierge--將應用程序連接到ai'><a href='https://askconcierge.ai/'><span>⁠Concierge- </span></a><span>將應用程序連接到AI </span></h4></li><li><h4 id='massivemark--將llm聊天轉換為docx---discord'><a href='https://www.bibcit.com/en/massivemark'><span>massivemark- </span></a><span>將LLM聊天轉換為DOCX / </span><a href='https://discord.gg/fPtQAQYmqq'><span> DISCORD </span></a></h4></li><li><h4 id='chatgpt寬屏----chatgpt寬屏-全屏---github'><a href='https://chatgptevo.com/widescreen/'><span>Chatgpt寬屏 </span></a><span>-  Chatgpt寬屏 /全屏 / </span><a href='https://github.com/adamlui/chatgpt-widescreen'><span> github </span></a></h4></li><li><h4 id='語音控制----chatgpt語音控制'><a href='https://voicecontrol.chat/'><span>語音控制 </span></a><span>-  chatgpt語音控制 </span></h4></li><li><h4 id='chatgpt出口商---出口聊天---github'><a href='https://greasyfork.org/en/scripts/456055'><span>CHATGPT出口商 </span></a><span>- 出口聊天 / </span><a href='https://github.com/pionxzh/chatgpt-exporter'><span> github </span></a></h4></li><li><h4 id='gpthemes---chatgpt主題'><a href='https://github.com/itsmartashub/GPThemes'><span>gpthemes- </span></a><span> chatgpt主題 </span></h4></li><li><h4 id='llm模型vram計算器--llm-vram計算器'><a href='https://huggingface.co/spaces/NyxKrage/LLM-Model-VRAM-Calculator'><span>LLM模型VRAM計算器 </span></a><span>-LLM VRAM計算器 </span></h4></li></ul><hr /><h2 id='ai提示'><span>AI提示 </span></h2><ul><li><h4 id='注意---繞過聊天機器人保障措施又稱越獄）是針對大多數ai的tos因此請自負地使用它們'><strong><span>注意</span></strong><span> - 繞過聊天機器人保障措施（又稱越獄）是針對大多數AI的TOS，因此請自負地使用它們。 </span></h4></li><li><h4 id='越獄清單---提示-越獄名單'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://rentry.org/jb-listing'><span>越獄清單 </span></a></strong><span>- 提示 /越獄名單  </span></h4></li><li><h4 id='很棒的chatgpt提示---提示目錄---github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://prompts.chat/'><span>很棒的chatgpt提示 </span></a></strong><span>- 提示目錄 / </span><a href='https://github.com/f/awesome-chatgpt-prompts'><span> github </span></a><span> </span></h4></li><li><h4 id='blackfriday-gpts提示---提示目錄'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/friuns2/BlackFriday-GPTs-Prompts'><span>BlackFriday GPTS提示 </span></a></strong><span>- 提示目錄 </span></h4></li><li><h4 id='洩漏提示---提示目錄'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/linexjlin/GPTs'><span>洩漏提示 </span></a></strong><span>- 提示目錄 </span></h4></li><li><h4 id='及時的工程指南---discord----github----promptengineering----learning-prompting----openai指南---claude-guide-或-learning-prompt----github--提示指南'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.promptingguide.ai/'><span>及時的工程指南 </span></a></strong><span>/ </span><a href='https://discord.gg/FUyz9vPAwf'><span> DISCORD </span></a><span> / </span><a href='https://github.com/dair-ai/Prompt-Engineering-Guide'><span> GITHUB </span></a><span> ， </span><a href='https://github.com/NirDiamant/Prompt_Engineering'><span> ⁠Prompt_Engineering </span></a><span> ， </span><a href='https://learnprompting.org/docs/intro'><span> Learning Prompting </span></a><span> ， </span><a href='https://platform.openai.com/docs/guides/prompt-engineering'><span> OpenAI指南 </span></a><span>， </span><a href='https://docs.anthropic.com/claude/docs/prompt-engineering'><span> Claude Guide </span></a><span>或 </span><a href='https://learningprompt.wiki/'><span>Learning Prompt </span></a><span> / </span><a href='https://github.com/thinkingjimmy/Learning-Prompt'><span> GitHub- </span></a><span>提示指南 </span></h4></li><li><h4 id='rchatgptjailbreak---ai越獄社區'><a href='https://www.reddit.com/r/ChatGPTJailbreak/'><span>/r/chatgptjailbreak </span></a><span> -AI越獄社區 </span></h4></li><li><h4 id='chatgpt系統提示---提示目錄'><a href='https://github.com/LouisShark/chatgpt_system_prompt'><span>CHATGPT系統提示 </span></a><span>- 提示目錄 </span></h4></li><li><h4 id='500個最佳提示---提示目錄'><a href='https://puzzle-jute-202.notion.site/500-Best-ChatGPT-Prompts-f5b4ad65deec4b6385316fdb8740af74'><span>500個最佳提示 </span></a><span>- 提示目錄 </span></h4></li><li><h4 id='大提示庫---提示目錄'><a href='https://github.com/0xeb/TheBigPromptLibrary'><span>大提示庫 </span></a><span>- 提示目錄 </span></h4></li><li><h4 id='chatgptbing-ai提示---提示目錄'><a href='https://github.com/yokoffing/ChatGPT-Prompts'><span>chatgpt＆bing ai提示 </span></a><span>- 提示目錄 </span></h4></li><li><h4 id='很棒的克勞德提示---提示目錄'><a href='https://github.com/langgptai/awesome-claude-prompts/'><span>很棒的克勞德提示 </span></a><span>- 提示目錄 </span></h4></li><li><h4 id='l1b3rt45--越獄提示---discord----x'><a href='https://github.com/elder-plinius/L1B3RT45'><span>L1B3RT45- </span></a><span>越獄提示 / </span><a href='https://discord.gg/basi'><span> DISCORD </span></a><span> / </span><a href='https://x.com/elder_plinius'><span> X </span></a></h4></li><li><h4 id='提示--不和諧---github-或-編織---及時的操場'><a href='https://www.promptfoo.dev/'><span>提示 </span></a><span>/ </span><a href='https://discord.gg/gHPS9jjfbs'><span>不和諧 </span></a><span>/ </span><a href='https://github.com/promptfoo/promptfoo'><span> github </span></a><span>或 </span><a href='https://promptknit.com/'><span>編織 </span></a><span>- 及時的操場 </span></h4></li><li><h4 id='tensor-trust----github-或-gandalf----github--提示技能遊戲'><a href='https://tensortrust.ai/'><span>Tensor Trust </span></a><span> / </span><a href='https://github.com/HumanCompatibleAI/tensor-trust'><span> github </span></a><span>或 </span><a href='https://gandalf.lakera.ai/'><span>Gandalf </span></a><span> / </span><a href='https://github.com/lakeraai'><span> github- </span></a><span>提示技能遊戲 </span></h4></li><li><h4 id='redteam-arena---ai越獄遊戲'><a href='https://redarena.ai/'><span>Redteam Arena </span></a><span> -AI越獄遊戲 </span></h4></li><li><h4 id='chatgpt遊戲---提示遊戲---subreddit'><a href='https://github.com/AdmTal/chat-gpt-games'><span>chatgpt遊戲 </span></a><span>- 提示遊戲 / </span><a href='https://www.reddit.com/r/ChatGPTGaming/'><span> subreddit </span></a></h4></li><li><h4 id='gobble-bot--生成聊天機器人的文本文件'><a href='https://gobble.bot/'><span>Gobble Bot- </span></a><span>生成聊天機器人的文本文件 </span></h4></li></ul><hr /><h1 id='►您有索引'><span>►您有索引 </span></h1><ul><li><p><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://lifearchitect.ai/models-table/'><span>Lifearchitect </span></a></strong><span> -LLM索引 </span></p></li><li><p><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://www.futuretools.io/?pricing-model=free'><span>FutureTools </span></a></strong><span> -AI目錄 / </span><a href='https://discord.gg/WBk4ZDW6A9'><span>不和諧 </span></a></p></li><li><p><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://labs.google/'><span>Google Labs </span></a></strong><span>或 </span><a href='https://labs.google/fx'><span>Google Labs FX </span></a><span> -Google AI實驗 / </span><a href='https://www.reddit.com/r/labsdotgoogle/'><span> subreddit </span></a><span> / </span><a href='https://discord.gg/googlelabs'><span> Discord </span></a></p></li><li><h4 id='perchance----discord-或-websim----subreddit----discord--簡單的ai構建器'><a href='https://perchance.org/generators'><span>Perchance </span></a><span> / </span><a href='https://discord.gg/43qAQEVV9a'><span> Discord </span></a><span>或 </span><a href='https://websim.ai/'><span>Websim </span></a><span> / </span><a href='https://www.reddit.com/r/WebSim/'><span> subreddit </span></a><span> / </span><a href='https://discord.gg/websim'><span> Discord- </span></a><span>簡單的AI構建器 </span></h4></li><li><h4 id='yp-for-ai---ai目錄'><a href='https://www.ypforai.com/'><span>yp for ai </span></a><span> -ai目錄 </span></h4></li><li><h4 id='llm-resources-hub---ai目錄'><a href='https://llmresourceshub.vercel.app/'><span>LLM Resources Hub </span></a><span> -AI目錄 </span></h4></li><li><h4 id='很棒的ai工具--ai目錄'><a href='https://github.com/mahseema/awesome-ai-tools'><span>很棒的AI工具 </span></a><span>-AI目錄 </span></h4></li><li><h4 id='更好-ai--ai目錄'><a href='https://itsbetterwithai.com/'><span>更好 </span></a><span>AI -AI目錄 </span></h4></li><li><h4 id='gpt演示--ai目錄'><a href='https://www.gptdemo.net/gpt/search?lg=en&amp;cate=&amp;keywords=&amp;tags=free,&amp;sort=popular'><span>GPT演示 </span></a><span>-AI目錄 </span></h4></li><li><h4 id='人工製作---多工具瀏覽器ais---discord'><a href='https://app.artificialstudio.ai/tools'><span>人工製作 </span></a><span>- 多工具瀏覽器AIS / </span><a href='https://discord.gg/EdNztJJH6z'><span> DISCORD </span></a></h4></li><li><h4 id='llm定價--llm定價指數'><a href='https://docs.google.com/spreadsheets/d/18GHPEBJzDbICmMStPVkNWA_hQHiWmLcqUdEJA1b4MJM/'><span>LLM定價 </span></a><span>-LLM定價指數 </span></h4></li></ul><hr /><h2 id='ai基準'><span>AI基準 </span></h2><ul><li><h4 id='聊天機器人競技場---聊天機器人排行榜-基準--不和諧---github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://lmarena.ai/'><span>聊天機器人競技場 </span></a></strong><span>- 聊天機器人排行榜 /基準 / </span><a href='https://discord.gg/6GXcFg3TH8'><span>不和諧 </span></a><span>/ </span><a href='https://github.com/lm-sys/FastChat'><span> github </span></a></h4></li><li><h4 id='打開llm排行榜---聊天機器人排行榜-基準測試'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard'><span>打開LLM排行榜 </span></a></strong><span>- 聊天機器人排行榜 /基準測試 </span></h4></li><li><h4 id='livebench--聊天機器人排行榜-基準---github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://livebench.ai/'><span>LiveBench- </span></a></strong><span>聊天機器人排行榜 /基準 / </span><a href='https://github.com/livebench/livebench'><span> GitHub </span></a></h4></li><li><h4 id='密封llm排行榜---聊天機器人排行榜'><a href='https://scale.com/leaderboard'><span>密封LLM排行榜 </span></a><span>- 聊天機器人排行榜 </span></h4></li><li><h4 id='wildbench--聊天機器人基準---github'><a href='https://huggingface.co/spaces/allenai/WildBench'><span>Wildbench- </span></a><span>聊天機器人基準 / </span><a href='https://github.com/allenai/WildBench'><span> github </span></a></h4></li><li><h4 id='wolfram-llm基準測試項目---聊天機器人排行榜-基準測試'><a href='https://www.wolfram.com/llm-benchmarking-project/'><span>Wolfram LLM基準測試項目 </span></a><span>- 聊天機器人排行榜 /基準測試 </span></h4></li><li><h4 id='zeroeval--聊天機器人排行榜---github'><a href='https://huggingface.co/spaces/allenai/ZeroEval'><span>Zeroeval- </span></a><span>聊天機器人排行榜 / </span><a href='https://github.com/WildEval/ZeroEval'><span> github </span></a></h4></li><li><h4 id='llm-stats--聊天機器人排行榜'><a href='https://llm-stats.com/'><span>LLM Stats- </span></a><span>聊天機器人排行榜 </span></h4></li><li><h4 id='openlm競技場---聊天機器人排行榜'><a href='https://openlm.ai/chatbot-arena/'><span>OpenLM競技場 </span></a><span>- 聊天機器人排行榜 </span></h4></li><li><h4 id='人工分析---聊天機器人基準測試'><a href='https://artificialanalysis.ai/'><span>人工分析 </span></a><span>- 聊天機器人基準測試 </span></h4></li><li><h4 id='最快的ai--聊天機器人延遲速度---github'><a href='https://thefastest.ai/'><span>最快的AI- </span></a><span>聊天機器人延遲速度 / </span><a href='https://github.com/fixie-ai/thefastest.ai'><span> github </span></a></h4></li><li><h4 id='openrouter--聊天機器人流行等級---discord----github'><a href='https://openrouter.ai/rankings'><span>⁠openrouter- </span></a><span>聊天機器人流行等級 / </span><a href='https://discord.gg/fVyRaUDgxW'><span> Discord </span></a><span> / </span><a href='https://github.com/OpenRouterTeam'><span> github </span></a></h4></li></ul><hr /><h1 id='►文本生成器'><span>►文本生成器 </span></h1><ul><li><h4 id='textfx----github-或-rytr---ai創意寫作工具-無註冊'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://textfx.withgoogle.com/'><span>textfx </span></a></strong><span> / </span><a href='https://github.com/google/generative-ai-docs/tree/main/demos/palm/web/textfx'><span> github </span></a><span>或 </span><a href='https://rytr.me/'><span>rytr- </span></a><span> AI創意寫作工具 /無註冊 </span></h4></li><li><h4 id='腳本ai--無註冊）-墨水---quickpen-ai--在線ai文本工具'><a href='https://scripai.com/'><span>腳本AI </span></a><span> （無註冊）， </span><a href='https://app.inkforall.com/tools'><span>墨水 </span></a><span>， </span><a href='https://quickpenai.com/'><span> Quickpen AI- </span></a><span>在線AI文本工具 </span></h4></li><li><h4 id='novelai--故事寫ai-無註冊--限制旁路---2----discord'><a href='https://novelai.net/'><span>Novelai- </span></a><span>故事寫AI /無註冊 / </span><a href='https://github.com/fmhy/FMHY/wiki/FMHY‐Notes.md#novelai-bypass'><span>限制旁路 </span></a><span>， </span><a href='https://greasyfork.org/en/scripts/448926'><span> 2 </span></a><span> / </span><a href='https://discord.com/invite/novelai'><span> Discord </span></a></h4></li><li><h4 id='夢dream--故事寫人'><a href='https://dreamily.ai/'><span>夢dream- </span></a><span>故事寫人 </span></h4></li><li><h4 id='perchancestory--故事寫ai'><a href='https://perchancestory.com/'><span>Perchancestory- </span></a><span>故事寫AI </span></h4></li></ul><hr /><h1 id='►視頻生成'><span>►視頻生成 </span></h1><ul><li><h4 id='videofx--谷歌視頻生成器-僅美國'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://labs.google/fx/tools/video-fx'><span>videofx- </span></a></strong><span>谷歌視頻生成器 /僅美國 </span></h4></li><li><h4 id='pixverse--視頻生成器--不和諧'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://pixverse.ai/'><span>Pixverse- </span></a></strong><span>視頻生成器 / </span><a href='https://discord.com/invite/MXHErdJHMg'><span>不和諧 </span></a></h4></li><li><h4 id='合成colab--視頻生成器--不和諧'><a href='https://github.com/camenduru/text-to-video-synthesis-colab'><span>合成COLAB- </span></a><span>視頻生成器 / </span><a href='https://discord.gg/k5BwmmvJJU'><span>不和諧 </span></a></h4></li><li><h4 id='穩定的視頻---視頻生成器'><a href='https://www.stablevideo.com/'><span>穩定的視頻 </span></a><span>- 視頻生成器 </span></h4></li><li><h4 id='vidu--視頻生成器--不和諧'><a href='https://www.vidu.studio/'><span>vidu- </span></a><span>視頻生成器 / </span><a href='https://discord.gg/3pDU8fmQ8Y'><span>不和諧 </span></a></h4></li><li><h4 id='穩定的擴散視頻---視頻生成器-無註冊---colab'><a href='https://github.com/nateraw/stable-diffusion-videos'><span>穩定的擴散視頻 </span></a><span>- 視頻生成器 /無註冊 / </span><a href='https://colab.research.google.com/github/nateraw/stable-diffusion-videos/blob/main/stable_diffusion_videos.ipynb'><span> COLAB </span></a></h4></li><li><h4 id='夢想機器---視頻生成器--不和諧'><a href='https://lumalabs.ai/dream-machine'><span>夢想機器 </span></a><span>- 視頻生成器 / </span><a href='https://discord.gg/lumaai'><span>不和諧 </span></a></h4></li><li><h4 id='texttovideo--視頻生成器'><a href='https://text-to-video.vercel.app/'><span>TextTovideo- </span></a><span>視頻生成器 </span></h4></li><li><h4 id='lensgo--視頻生成器--不和諧'><a href='https://lensgo.ai/'><span>Lensgo- </span></a><span>視頻生成器 / </span><a href='https://discord.com/invite/CHMhrByFJS'><span>不和諧 </span></a></h4></li><li><h4 id='kling-ai--視頻生成器--不和諧'><a href='https://klingai.com/'><span>Kling AI- </span></a><span>視頻生成器 / </span><a href='https://discord.com/invite/8tj8YjSzKr'><span>不和諧 </span></a></h4></li><li><h4 id='皮卡---視頻生成器--不和諧'><a href='https://www.pika.art/'><span>皮卡 </span></a><span>- 視頻生成器 / </span><a href='https://discord.com/invite/pika'><span>不和諧 </span></a></h4></li><li><h4 id='灌注大腦---視頻生成器'><a href='https://fusionbrain.ai/en/'><span>⁠灌注大腦 </span></a><span>- 視頻生成器 </span></h4></li><li><h4 id='dreamina--視頻生成器-每天50'><a href='https://dreamina.capcut.com/ai-tool/home'><span>Dreamina- </span></a><span>視頻生成器 /每天50 </span></h4></li><li><h4 id='krea--視頻生成器--10日-無註冊--不和諧'><a href='https://www.krea.ai/'><span>KREA- </span></a><span>視頻生成器 / 10日 /無註冊 / </span><a href='https://discord.gg/rJurUAR8Kz'><span>不和諧 </span></a></h4></li><li><h4 id='hailuo-ai--視頻生成器-使用翻譯--不和諧'><a href='https://hailuoai.com/video'><span>Hailuo AI- </span></a><span>視頻生成器 /使用翻譯 / </span><a href='https://discord.com/invite/hvvt8hAye6'><span>不和諧 </span></a></h4></li><li><h4 id='roldideo--文字到subbed視頻-無註冊'><a href='https://rollideo.com/'><span>roldideo- </span></a><span>文字到subbed視頻 /無註冊 </span></h4></li></ul><hr /><h1 id='►圖像生成'><span>►圖像生成 </span></h1><ul><li><h4 id='nexusai圖像-每天300型--不和諧'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://image.nexusmind.tech/'><span>Nexusai圖像 </span></a></strong><span>/每天300型 / </span><a href='https://discord.com/invite/sk8eddGwmP'><span>不和諧 </span></a></h4></li><li><h4 id='flux1-schnell-或-flux1-dev--無限-無註冊'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><span>[Flux.1 </span><a href='https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell'><span>Schnell</span><span>]</span><span> </span></a></strong><span>或 [Flux.1 </span><a href='https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev'><span>dev</span><span>]</span><span> </span></a><span> /無限 /無註冊 </span></h4></li><li><h4 id='法師-無註冊--不和諧'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.mage.space/'><span>法師 </span></a></strong><span>/無註冊 / </span><a href='https://discord.com/invite/GT9bPgxyFP'><span>不和諧 </span></a><span> </span></h4></li><li><h4 id='imagefx--谷歌圖像生成器-基於無限-區域'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://labs.google/fx/tools/image-fx'><span>ImageFX- </span></a></strong><span>谷歌圖像生成器 /基於無限 /區域 </span></h4></li><li><h4 id='在線-或-comfyui-zluda--無限制'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.runcomfy.com/comfyui-web'><span>在線 </span></a></strong><span>或 </span><a href='https://github.com/patientx/ComfyUI-Zluda'><span>comfyui-zluda </span></a><span> /無限制 </span></h4></li><li><h4 id='25grok每2小時'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://grok.com/'><span>25(grok)</span></a></strong><span>每2小時  </span></h4></li><li><h4 id='dezgo--無限-無註冊--不和諧'><a href='https://dezgo.com/'><span>dezgo </span></a><span> /無限 /無註冊 / </span><a href='https://discord.com/invite/RQrGpUhPhx'><span>不和諧 </span></a></h4></li><li><h4 id='piclumen---unlimited---discord'><a href='https://piclumen.com/'><span>piclumen </span></a><span> / unlimited / </span><a href='https://discord.gg/bAycHJgbD8'><span> discord </span></a></h4></li><li><h4 id='灌注大腦---2--無限--電報機器人'><a href='https://fusionbrain.ai/en/'><span>⁠灌注大腦 </span></a><span>， </span><a href='https://rudalle.ru/'><span> 2 </span></a><span> /無限 / </span><a href='https://t.me/kandinsky21_bot'><span>電報機器人 </span></a></h4></li><li><h4 id='微軟設計師---2--12月'><a href='https://designer.microsoft.com/image-creator'><span>微軟設計師 </span></a><span>， </span><a href='https://www.bing.com/images/create'><span> 2 </span></a><span> /12月 </span></h4></li><li><h4 id='kling-ai---366每月--角色--肖像--不和諧'><a href='https://klingai.com/'><span>kling ai </span></a><span> / 366每月 / </span><a href='https://huggingface.co/spaces/Kwai-Kolors/Kolors-Character-With-Flux'><span>角色 </span></a><span>/ </span><a href='https://huggingface.co/spaces/Kwai-Kolors/Kolors-Portrait-with-Flux'><span>肖像 </span></a><span>/ </span><a href='https://discord.com/invite/8tj8YjSzKr'><span>不和諧 </span></a></h4></li><li><h4 id='ai畫廊-無限-無註冊'><a href='https://aigallery.app/'><span>AI畫廊 </span></a><span>/無限 /無註冊 </span></h4></li><li><h4 id='招募-每天50--不和諧'><a href='https://www.recraft.ai/'><span>招募 </span></a><span>/每天50 / </span><a href='https://discord.gg/recraft'><span>不和諧 </span></a></h4></li><li><h4 id='imgsys--無限-比較發電機-無註冊'><a href='https://imgsys.org/'><span>IMGSYS </span></a><span> /無限 /比較發電機 /無註冊 </span></h4></li><li><h4 id='nvidia-nim---50每日-無註冊'><a href='https://build.nvidia.com/models?filters=usecase%3Ausecase_image_gen'><span>NVIDIA NIM </span></a><span> / 50每日 /無註冊 </span></h4></li><li><h4 id='火鍋--75每日-無註冊'><a href='https://hotpot.ai/'><span>火鍋 </span></a><span>/ 75每日 /無註冊 </span></h4></li><li><h4 id='prodia---unlimited--no註冊--不和諧'><a href='https://app.prodia.com/playground'><span>prodia </span></a><span> / unlimited / no註冊 / </span><a href='https://discord.com/invite/495hz6vrFN'><span>不和諧 </span></a></h4></li><li><h4 id='授粉-無限-無註冊---discord----github'><a href='https://pollinations.ai/'><span>授粉 </span></a><span>/無限 /無註冊 / </span><a href='https://discord.gg/k9F7SyTgqn'><span> DISCORD </span></a><span> / </span><a href='https://www.github.com/pollinations/pollinations'><span> GITHUB </span></a></h4></li><li><h4 id='picsynth--無限'><a href='https://www.picsynth.me/generation'><span>PICSYNTH </span></a><span> /無限 </span></h4></li><li><h4 id='元ai--無限-註冊需要'><a href='https://www.meta.ai/icebreakers/imagine/'><span>元AI </span></a><span> /無限 /註冊需要 </span></h4></li><li><h4 id='操場-每3小時15'><a href='https://playground.com/'><span>操場 </span></a><span>/每3小時15 </span></h4></li><li><h4 id='tensorart---40-daily---subreddit----discord'><a href='https://tensor.art/'><span>Tensorart </span></a><span> / 40 Daily / </span><a href='https://www.reddit.com/r/TensorArt_HUB/'><span> subreddit </span></a><span> / </span><a href='https://discord.com/invite/qYjANGqBED'><span> Discord </span></a></h4></li><li><h4 id='shakker---50-daily---discord---指南'><a href='https://www.shakker.ai/'><span>Shakker </span></a><span> / 50 Daily / </span><a href='https://discord.gg/djyP5u3vHY'><span> Discord </span></a><span> / </span><a href='https://docs.google.com/document/d/1PZ6to6Nn995J0o0BbEPhucqge9uyc1acQoNuvWkK6M8/edit#heading=h.kkzhkyyy4ze4'><span>指南 </span></a></h4></li><li><h4 id='穩定的擴散-無限---github----discord'><a href='https://huggingface.co/spaces/stabilityai/stable-diffusion'><span>穩定的擴散 </span></a><span>/無限 / </span><a href='https://github.com/Stability-AI/stablediffusion'><span> github </span></a><span> / </span><a href='https://discord.com/invite/stablediffusion'><span> Discord </span></a></h4></li><li><h4 id='不穩定的擴散-每天52'><a href='https://www.unstability.ai/'><span>不穩定的擴散 </span></a><span>/每天52 </span></h4></li><li><h4 id='seaart---40每日--不和諧'><a href='https://www.seaart.ai/'><span>SEAART </span></a><span> / 40每日 / </span><a href='https://discord.com/invite/gUHDU644vU'><span>不和諧 </span></a></h4></li><li><h4 id='藝術精靈-無限-無註冊'><a href='https://artgenie.pages.dev/'><span>藝術精靈 </span></a><span>/無限 /無註冊 </span></h4></li><li><h4 id='raphael--無限-無標記-使用flux1'><a href='https://raphael.app/'><span>Raphael </span></a><span> /無限 /無標記 /使用Flux.1 </span></h4></li><li><h4 id='pixnova-ai--無限'><a href='https://pixnova.ai/ai-body-generator/'><span>Pixnova AI </span></a><span> /無限 </span></h4></li><li><h4 id='chatk--無限'><a href='https://chat.oaichat.cc/'><span>chatk </span></a><span> /無限 </span></h4></li><li><h4 id='imagelabs---unlimited--no註冊'><a href='https://editor.imagelabs.net/'><span>ImagelAbs </span></a><span> / unlimited / no註冊 </span></h4></li><li><h4 id='picfinder--無限'><a href='https://picfinder.ai/'><span>picfinder </span></a><span> /無限 </span></h4></li><li><h4 id='aigazou--無限'><a href='https://muryou-aigazou.com/'><span>aigazou </span></a><span> /無限 </span></h4></li><li><h4 id='dreamina---50每日-需要註冊'><a href='https://dreamina.capcut.com/ai-tool/home'><span>Dreamina </span></a><span> / 50每日 /需要註冊 </span></h4></li><li><h4 id='perchance----2--無限-無註冊'><a href='https://perchance.org/ai-text-to-image-generator'><span>Perchance </span></a><span> ， </span><a href='https://perchance.org/ai-photo-generator'><span> 2 </span></a><span> /無限 /無註冊 </span></h4></li><li><h4 id='getimgai---100每月--不和諧'><a href='https://getimg.ai/'><span>getimg.ai </span></a><span> / 100每月 / </span><a href='https://discord.com/invite/5KsUXSzVwS'><span>不和諧 </span></a></h4></li><li><h4 id='adobe-firefly---25月份--不符合-要求'><a href='https://firefly.adobe.com/'><span>Adobe Firefly </span></a><span> / 25月份 / </span><a href='https://discord.com/invite/dJnsV5s8PZ'><span>不符合 </span></a><span>/要求 </span></h4></li><li><h4 id='aitubo---25每日--不和諧'><a href='https://app.aitubo.ai/'><span>Aitubo </span></a><span> / 25每日 / </span><a href='https://discord.gg/qTu6YsRn7F'><span>不和諧 </span></a></h4></li><li><h4 id='poe---2-15-daily--phonerequiend---discord'><a href='https://poe.com/'><span>POE </span></a><span> / 2-15 Daily / Phone＃Requiend / </span><a href='https://discord.com/invite/joinpoe'><span> Discord </span></a></h4></li><li><h4 id='迷宮大師-每日12--不和諧'><a href='https://maze.guru/gallery'><span>迷宮大師 </span></a><span>/每日12 / </span><a href='https://discord.com/invite/maze-guru-ai-art-anime-social-1007166914801434634'><span>不和諧 </span></a></h4></li><li><h4 id='pixai---5每日--不和諧'><a href='https://pixai.art/'><span>Pixai </span></a><span> / 5每日 / </span><a href='https://discord.com/invite/pixai'><span>不和諧 </span></a></h4></li><li><h4 id='fluxpro---1每日--不和諧'><a href='https://fluxpro.art/'><span>fluxpro </span></a><span> / 1每日 / </span><a href='https://discord.gg/YMmUAvtRva'><span>不和諧 </span></a></h4></li><li><h4 id='glif---20每日-無註冊--不和諧'><a href='https://glif.app/'><span>GLIF </span></a><span> / 20每日 /無註冊 / </span><a href='https://discord.gg/nuR9zZ2nsh'><span>不和諧 </span></a></h4></li><li><h4 id='krea---10每日-無註冊--不和諧'><a href='https://www.krea.ai/'><span>Krea </span></a><span> / 10每日 /無註冊 / </span><a href='https://discord.gg/rJurUAR8Kz'><span>不和諧 </span></a></h4></li><li><h4 id='whisk--將圖像用作提示'><a href='https://labs.google/fx/en/tools/whisk'><span>⁠Whisk- </span></a><span>將圖像用作提示 </span></h4></li><li><h4 id='火----ai模因發電機'><a href='https://www.memecam.io/'><span>火 </span></a><span>-  AI模因發電機 </span></h4></li><li><h4 id='artoons--卡通風格發電機---github'><a href='https://artoons.vercel.app/'><span>Artoons- </span></a><span>卡通風格發電機 / </span><a href='https://github.com/sujjeee/artoons'><span> github </span></a></h4></li><li><h4 id='genie----discord----shap--e---穩定的夢幻般的-或-threestudio----colab----discord---3d圖像發生器'><a href='https://lumalabs.ai/genie'><span>genie </span></a><span> / </span><a href='https://discord.com/invite/ASbS3EykXm'><span> discord </span></a><span> ， </span><a href='https://github.com/openai/shap-e'><span> shap -e </span></a><span> ， </span><a href='https://github.com/ashawkey/stable-dreamfusion'><span>穩定的夢幻般的 </span></a><span>或 </span><a href='https://github.com/threestudio-project/threestudio'><span>threestudio </span></a><span> / </span><a href='https://colab.research.google.com/github/threestudio-project/threestudio/blob/main/threestudio.ipynb'><span> colab </span></a><span> / </span><a href='https://discord.gg/ejer2MAB8N'><span> Discord </span></a><span> -3D圖像發生器 </span></h4></li><li><h4 id='交互式場景---生成交互式場景--不和諧'><a href='https://lumalabs.ai/interactive-scenes'><span>交互式場景 </span></a><span>- 生成交互式場景 / </span><a href='https://discord.com/invite/ASbS3EykXm'><span>不和諧 </span></a></h4></li><li><h4 id='幻覺擴散---幻覺藝術品生成器'><a href='https://huggingface.co/spaces/AP123/IllusionDiffusion'><span>幻覺擴散 </span></a><span>- 幻覺藝術品生成器 </span></h4></li></ul><hr /><h2 id='▷本地前端'><span>▷本地前端 </span></h2><ul><li><h4 id='穩定矩陣---discord----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://lykos.ai/'><span>穩定矩陣 </span></a></strong><span>/ </span><a href='https://discord.com/invite/TUrgfECxHz'><span> DISCORD </span></a><span> / </span><a href='https://github.com/LykosAI/StabilityMatrix'><span> GITHUB </span></a><span> </span></h4></li><li><h4 id='invoke----github----discord'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://invoke-ai.github.io/InvokeAI/'><span>Invoke </span></a><span> / </span><a href='https://github.com/invoke-ai/InvokeAI'><span> github </span></a></strong><span> / </span><a href='https://discord.com/invite/ZmtBAhwWhy'><span> Discord </span></a><span> </span></h4></li><li><h4 id='comfyui----subreddit----discord----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.comfy.org/'><span>comfyui </span></a></strong><span> / </span><a href='https://www.reddit.com/r/comfyui/'><span> subreddit </span></a><span> / </span><a href='https://discord.gg/comfyorg'><span> discord </span></a><span> / </span><a href='https://github.com/comfyanonymous/ComfyUI'><span> github </span></a><span> </span></h4></li><li><h4 id='fooocus----2----clop'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/lllyasviel/Fooocus'><span>fooocus </span></a></strong><span> ， </span><a href='https://github.com/MoonRide303/Fooocus-MRE'><span> 2 </span></a><span> / </span><a href='https://colab.research.google.com/github/lllyasviel/Fooocus/blob/main/fooocus_colab.ipynb'><span> clop </span></a><span> </span></h4></li><li><h4 id='摩chi擴散----mac---discord的穩定擴散'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/MochiDiffusion/MochiDiffusion'><span>摩chi擴散 </span></a></strong><span>-  Mac / </span><a href='https://discord.com/invite/x2kartzxGv'><span> Discord的穩定擴散 </span></a><span> </span></h4></li><li><h4 id='擴散性----mac---github----discord的穩定擴散'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://diffusionbee.com/'><span>擴散性 </span></a></strong><span>-  Mac / </span><a href='https://github.com/divamgupta/diffusionbee-stable-diffusion-ui'><span> github </span></a><span> / </span><a href='https://discord.com/invite/t6rC5RaJQn'><span> Discord的穩定擴散 </span></a><span> </span></h4></li><li><h4 id='自動1111----fork----2----colab----photoshop----templates----upscaling----2'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/AUTOMATIC1111/stable-diffusion-webui'><span>自動1111 </span></a></strong><span> / </span><a href='https://github.com/anapnoe/stable-diffusion-webui-ux'><span> fork </span></a><span> ， </span><a href='https://github.com/vladmandic/automatic'><span> 2 </span></a><span> / </span><a href='https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Online-Services#google-colab'><span> colab </span></a><span> / </span><a href='https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin'><span> photoshop </span></a><span> / </span><a href='https://github.com/ThereforeGames/unprompted'><span> templates </span></a><span> / </span><a href='https://github.com/Coyote-A/ultimate-upscale-for-automatic1111'><span> upscaling </span></a><span> ， </span><a href='https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111'><span> 2 </span></a><span> </span></h4></li><li><h4 id='stablestudio'><a href='https://github.com/Stability-AI/StableStudio'><span>Stablestudio </span></a></h4></li><li><h4 id='easy擴散--不和諧---github----github'><a href='https://easydiffusion.github.io/'><span>⁠easy擴散 </span></a><span>/ </span><a href='https://discord.com/invite/u9yhsFmEkB'><span>不和諧 </span></a><span>/ </span><a href='https://github.com/easydiffusion/easydiffusion'><span> github </span></a><span> / </span><a href='https://github.com/easydiffusion/easydiffusion'><span> github </span></a></h4></li><li><h4 id='makeayo----discord'><a href='https://makeayo.com/'><span>makeayo </span></a><span> / </span><a href='https://discord.gg/FbdSxdeV8m'><span> Discord </span></a></h4></li><li><h4 id='biniou'><a href='https://github.com/Woolverine94/biniou'><span>biniou </span></a></h4></li><li><h4 id='sygil-webui----colab----discord----github'><a href='https://sygil-dev.github.io/sygil-webui/'><span>Sygil webui </span></a><span> / </span><a href='https://colab.research.google.com/github/Sygil-Dev/sygil-webui/blob/main/Web_based_UI_for_Stable_Diffusion_colab.ipynb'><span> colab </span></a><span> / </span><a href='https://discord.com/invite/ttM8Tm6wge'><span> discord </span></a><span> / </span><a href='https://github.com/Sygil-Dev/sygil-webui'><span> github </span></a></h4></li><li><h4 id='輻射---github'><a href='https://ddpn08.github.io/Radiata/en/'><span>輻射 </span></a><span>/ </span><a href='https://github.com/ddPn08/Radiata'><span> github </span></a></h4></li><li><h4 id='sd-webui-forge'><a href='https://github.com/lllyasviel/stable-diffusion-webui-forge'><span>SD Webui Forge </span></a></h4></li></ul><hr /><h2 id='▷指南-工具'><span>▷指南 /工具 </span></h2><ul><li><h4 id='paper2gui----sdg--link----localmodelslinks----sdtools-或-ai創建工具--ai-image-resources'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://github.com/Baiyuetribe/paper2gui/blob/main/README_en.md'><span>Paper2Gui </span></a></strong><span> ， </span><a href='https://rentry.co/sdg-link'><span> ⁠SDG -Link </span></a><span> ， </span><a href='https://rentry.org/LocalModelsLinks'><span> LocalModelSlinks </span></a><span> ， </span><a href='https://sdtools.org/'><span> SDTools </span></a><span>或 </span><a href='https://docs.google.com/spreadsheets/d/1zYJUM-srhgIA7wrj4Pe4QqepAsHIEC00DydoTPv4PWg/edit#gid=0'><span>AI創建工具 </span></a><span>-AI Image Resources </span></h4></li><li><h4 id='civitai---sd型號索引---subreddit----discord----github'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://civitai.com/'><span>civitai- </span></a></strong><span> SD型號索引 / </span><a href='https://www.reddit.com/r/civitai/'><span> subreddit </span></a><span> / </span><a href='https://discord.gg/UwX5wKwm6c'><span> discord </span></a><span> / </span><a href='https://github.com/civitai/civitai'><span> github </span></a></h4></li><li><h4 id='敏捷媽媽---及時索引'><img src="https://bayimg.com/1b15780268487b04348592719224afdf05154f3d.jpg" referrerpolicy="no-referrer" alt="：globe_with_meridians："><span> </span><strong><a href='https://promptomania.com/'><span>敏捷媽媽 </span></a></strong><span>- 及時索引 </span></h4></li><li><h4 id='潛在空間的旅行指南--ai藝術指南'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://sweet-hall-e72.notion.site/A-Traveler-s-Guide-to-the-Latent-Space-85efba7e5e6a40e5bd3cae980f30235f'><span>潛在空間的旅行指南 </span></a></strong><span>-AI藝術指南 </span></h4></li><li><h4 id='剪輯詢問器---2--確定可能使用的圖像提示---colab----2'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://huggingface.co/spaces/pharma/CLIP-Interrogator'><span>剪輯詢問器 </span></a></strong><span>/ </span><a href='https://huggingface.co/spaces/fffiloni/CLIP-Interrogator-2'><span> 2- </span></a><span>確定可能使用的圖像提示 / </span><a href='https://colab.research.google.com/github/pharmapsychotic/clip-interrogator/blob/main/clip_interrogator.ipynb'><span> COLAB </span></a><span> ， </span><a href='https://colab.research.google.com/github/pharmapsychotic/clip-interrogator/blob/open-clip/clip_interrogator.ipynb'><span> 2 </span></a></h4></li><li><h4 id='sd動態提示---自動1111的擴展'><a href='https://github.com/adieyal/sd-dynamic-prompts'><span>SD動態提示 </span></a><span>- 自動1111的擴展 </span></h4></li><li><h4 id='ai部落---運行穩定擴散--接口-23-的-網絡-gpu的分佈式----discord----github'><a href='https://stablehorde.net/'><span>AI部落 </span></a><span>- 運行穩定擴散 / </span><a href='https://aqualxx.github.io/stable-ui/'><span>接口 </span></a><span>2，3 </span><a href='https://tinybots.net/artbot'><span>的 </span></a><span>網絡 </span><a href='https://artificial-art.eu/'><span>GPU的分佈式 </span></a><span> / </span><a href='https://discord.gg/3DxrhksKzn'><span> discord </span></a><span> / </span><a href='https://github.com/Haidra-Org/AI-Horde'><span> github </span></a></h4></li><li><h4 id='iopaint--圖像填充-刪除---colab----github'><a href='https://www.iopaint.com/'><span>iopaint- </span></a><span>圖像填充 /刪除 / </span><a href='https://colab.research.google.com/drive/1TKVlDZiE3MIZnAUMpv2t_S4hLr6TUY1d?usp=sharing'><span> colab </span></a><span> / </span><a href='https://github.com/Sanster/IOPaint'><span> github </span></a></h4></li><li><h4 id='不穩定的擴散--ai圖像社區'><a href='https://discord.com/invite/unstablediffusion'><span>不穩定的擴散 </span></a><span>-AI圖像社區 </span></h4></li></ul><hr /><h1 id='►音頻產生'><span>►音頻產生 </span></h1><ul><li><h4 id='musicgen--文字-音樂ai--no註冊--colab----github的'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://huggingface.co/spaces/facebook/MusicGen'><span>Musicgen- </span></a></strong><span>文字 </span><a href='https://colab.research.google.com/drive/1ECmNEoXk8kvnLEMBMF2LY82E7XmIG4yu'><span>音樂ai / no註冊 / colab </span></a><span> / </span><a href='https://github.com/facebookresearch/audiocraft/blob/main/docs/MUSICGEN.md'><span> github的 </span></a></h4></li><li><h4 id='即興--不和諧'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.riffusion.com/'><span>即興 </span></a></strong><span>/ </span><a href='https://discord.gg/riffusion-1053034685590143047'><span>不和諧 </span></a></h4></li><li><h4 id='suno----guide----discord'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://suno.com/'><span>Suno </span></a></strong><span> / </span><a href='https://sunoaiwiki.com/en'><span> Guide </span></a><span> / </span><a href='https://discord.com/invite/suno'><span> Discord </span></a></h4></li><li><h4 id='基於musicfx--區域'><a href='https://labs.google/fx/tools/music-fx'><span>基於MusicFX </span></a><span> /區域 </span></h4></li><li><h4 id='wolframtones---no註冊'><a href='https://tones.wolfram.com/'><span>Wolframtones </span></a><span> / no註冊 </span></h4></li><li><h4 id='穩定的音頻--不和諧'><a href='https://www.stableaudio.com/'><span>穩定的音頻 </span></a><span>/ </span><a href='https://discord.com/invite/stablediffusion'><span>不和諧 </span></a></h4></li><li><h4 id='共享--不和諧'><a href='https://www.udio.com/'><span>共享 </span></a><span>/ </span><a href='https://discord.gg/udio'><span>不和諧 </span></a></h4></li><li><h4 id='視聽生成器-無註冊'><a href='https://fredericbriolet.com/avg/'><span>視聽生成器 </span></a><span>/無註冊 </span></h4></li><li><h4 id='假音樂生成器-無註冊'><a href='https://www.fakemusicgenerator.com/'><span>假音樂生成器 </span></a><span>/無註冊 </span></h4></li><li><h4 id='索諾托sonauto--不和諧'><a href='https://sonauto.ai/'><span>索諾托(sonauto) </span></a><span>/ </span><a href='https://discord.gg/pfXar3ChH8'><span>不和諧 </span></a></h4></li><li><h4 id='beatovenai----discord'><a href='https://www.beatoven.ai/'><span>Beatoven.ai </span></a><span> / </span><a href='https://discord.gg/8nXq56wwJM'><span> Discord </span></a></h4></li><li><h4 id='波形waveformer--github'><a href='https://waveformer.replicate.dev/'><span>波形(waveformer)</span></a><span>/ </span><a href='https://github.com/fofr/waveformer'><span> github </span></a></h4></li><li><h4 id='soundraw--否註冊'><a href='https://soundraw.io/'><span>Soundraw </span></a><span> /否註冊 </span></h4></li><li><h4 id='是aiva-丟棄discordapp'><a href='https://aiva.ai/'><span>是(aiva)</span></a><span>/ </span><a href='https://discordapp.com/invite/ypDnFXN'><span>丟棄(discordapp)</span></a></h4></li><li><h4 id='boomy----discord'><a href='https://boomy.com/'><span>BOOMY </span></a><span> / </span><a href='https://discord.gg/DNHQXeJegp'><span> DISCORD </span></a></h4></li><li><h4 id='旋律melobytes'><a href='https://melobytes.com/en'><span>旋律(melobytes) </span></a></h4></li><li><h4 id='ai自動點唱機-無註冊'><a href='https://huggingface.co/spaces/enzostvs/ai-jukebox'><span>AI自動點唱機 </span></a><span>/無註冊 </span></h4></li><li><h4 id='包生成器---樣品包生成器'><a href='https://output.com/products/pack-generator'><span>包生成器 </span></a><span>- 樣品包生成器 </span></h4></li><li><h4 id='mmaudio--生成無聲視頻--演示---colab----github的音頻'><a href='https://hkchengrex.com/MMAudio/'><span>mmaudio- </span></a><span>生成無聲視頻 / </span><a href='https://huggingface.co/spaces/hkchengrex/MMAudio'><span>演示 </span></a><span>/ </span><a href='https://colab.research.google.com/drive/1TAaXCY2-kPk4xE4PwKB3EqFbSnkUuzZ8?usp=sharing'><span> colab </span></a><span> / </span><a href='https://github.com/hkchengrex/MMAudio'><span> github的音頻 </span></a></h4></li><li><h4 id='drumloop-ai--鼓循環發電機'><a href='https://www.drumloopai.com/'><span>Drumloop AI- </span></a><span>鼓循環發電機 </span></h4></li><li><h4 id='wombo---ai驅動的嘴唇同步'><a href='https://www.wombo.ai/'><span>WOMBO- </span></a><span> AI驅動的嘴唇同步 </span></h4></li></ul><hr /><h2 id='▷文字到語音'><span>▷文字到語音 </span></h2><ul><li><h4 id='烏龜tts--無註冊'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/neonbjb/tortoise-tts'><span>烏龜TTS </span></a></strong><span> /無註冊 </span></h4></li><li><h4 id='樹皮-無註冊---colab----github----discord'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://huggingface.co/spaces/suno/bark'><span>樹皮 </span></a></strong><span>/無註冊 / </span><a href='https://colab.research.google.com/drive/1eJfA2XUa-mXwdMy7DoYKVYHI1iTd9Vkt?usp=sharing'><span> COLAB </span></a><span> / </span><a href='https://github.com/suno-ai/bark'><span> GITHUB </span></a><span> / </span><a href='https://discord.com/invite/J2B2vsjKuE'><span> DISCORD </span></a></h4></li><li><h4 id='uberduck---indip-ofirst---discord'><a href='https://uberduck.ai/'><span>Uberduck </span></a><span> / Indip ofirst / </span><a href='https://discord.gg/uberduck-768215836665446480'><span> Discord </span></a></h4></li><li><h4 id='google照明---生成ai對話'><a href='https://illuminate.google.com/'><span>Google照明 </span></a><span>- 生成AI對話 </span></h4></li><li><h5 id='elevenlabs---no註冊---discord----github'><a href='https://elevenlabs.io/'><span>Elevenlabs </span></a><span> / no註冊 / </span><a href='https://discord.gg/elevenlabs'><span> DISCORD </span></a><span> / </span><a href='https://github.com/elevenlabs'><span> GITHUB </span></a></h5></li><li><h4 id='ttsmp3---no註冊'><a href='https://ttsmp3.com/'><span>ttsmp3 </span></a><span> / no註冊 </span></h4></li><li><h4 id='假身分fakeyou無註冊--不和諧'><a href='https://fakeyou.com/'><span>假身分(fakeyou)</span></a><span>/無註冊 / </span><a href='https://discord.gg/fakeyou'><span>不和諧 </span></a></h4></li><li><h4 id='luvvoice---no註冊'><a href='https://luvvoice.com/'><span>luvvoice </span></a><span> / no註冊 </span></h4></li><li><h4 id='ttsmaker---no註冊'><a href='https://ttsmaker.com/'><span>ttsmaker </span></a><span> / no註冊 </span></h4></li><li><h4 id='ttsopenai---no註冊'><a href='https://ttsopenai.com/'><span>ttsopenai </span></a><span> / no註冊 </span></h4></li><li><h4 id='edge-tts---no註冊--python模塊'><a href='https://github.com/rany2/edge-tts'><span>Edge-TTS </span></a><span> / NO註冊 / Python模塊 </span></h4></li><li><h4 id='聲音'><a href='https://www.hailuo.ai/audio/'><span>聲音 </span></a></h4></li><li><h4 id='texttospeechio'><a href='https://texttospeech.io/'><span>TextToSpeech.io </span></a></h4></li><li><h4 id='lazypy---no註冊---github'><a href='https://lazypy.ro/tts/'><span>lazypy </span></a><span> / no註冊 / </span><a href='https://github.com/chrisjp/tts'><span> github </span></a></h4></li><li><h4 id='kokoro-tts---no註冊--源代碼---discord----github'><a href='https://huggingface.co/spaces/hexgrad/Kokoro-TTS'><span>kokoro tts </span></a><span> / no註冊 / </span><a href='https://huggingface.co/hexgrad/Kokoro-82M'><span>源代碼 </span></a><span>/ </span><a href='https://discord.gg/QuGxSWBfQy'><span> discord </span></a><span> / </span><a href='https://github.com/hexgrad/kokoro'><span> github </span></a></h4></li><li><h4 id='ondoku---no註冊'><a href='https://ondoku3.com/en/'><span>ondoku </span></a><span> / no註冊 </span></h4></li><li><h4 id='voicecraft----consoil'><a href='https://github.com/jasonppy/VoiceCraft'><span>Voicecraft </span></a><span> / </span><a href='https://colab.research.google.com/drive/1IOjpglQyMTO2C3Y94LD9FY0Ocn-RJRg6?usp=sharing'><span> Consoil </span></a></h4></li><li><h4 id='情感'><a href='https://github.com/netease-youdao/EmotiVoice'><span>情感 </span></a></h4></li><li><h4 id='魚音頻--不和諧---github'><a href='https://fish.audio/'><span>魚音頻 </span></a><span>/ </span><a href='https://discord.gg/6t7dUSPV'><span>不和諧 </span></a><span>/ </span><a href='https://github.com/fishaudio'><span> github </span></a></h4></li><li><h4 id='音頻----webui---no註冊---colab----discord'><a href='https://github.com/gitmylo/audio-webui'><span>音頻 -  webui </span></a><span> / no註冊 / </span><a href='https://colab.research.google.com/github/gitmylo/audio-webui/blob/master/audio_webui_colab.ipynb'><span> COLAB </span></a><span> / </span><a href='https://discord.gg/NB86C3Szkg'><span> DISCORD </span></a></h4></li><li><h4 id='香草-無註冊'><a href='https://www.vanillavoice.com/'><span>香草 </span></a><span>/無註冊 </span></h4></li><li><h4 id='ttsfree---no註冊'><a href='https://ttsfree.com/'><span>ttsfree </span></a><span> / no註冊 </span></h4></li><li><h4 id='影片'><a href='https://wideo.co/text-to-speech/'><span>影片 </span></a></h4></li><li><h4 id='lovo----discord'><a href='https://lovo.ai/'><span>Lovo </span></a><span> / </span><a href='https://discord.gg/vWHw5ZKEmk'><span> Discord </span></a></h4></li><li><h4 id='soundoftext---no註冊'><a href='https://soundoftext.com/'><span>soundoftext </span></a><span> / no註冊 </span></h4></li><li><h4 id='freetts'><a href='https://freetts.com/'><span>Freetts </span></a></h4></li><li><h4 id='演講者voicemaker-無註冊'><a href='https://voicemaker.in/'><span>演講者(voicemaker) </span></a><span>/無註冊 </span></h4></li><li><h4 id='天然閱讀器-無註冊'><a href='https://www.naturalreaders.com/online/'><span>天然閱讀器 </span></a><span>/無註冊 </span></h4></li><li><h4 id='tts----discord'><a href='https://github.com/coqui-ai/tts'><span>TTS </span></a><span> / </span><a href='https://discord.gg/5eXr5seRrv'><span> DISCORD </span></a></h4></li><li><h4 id='衝突'><a href='https://clash.me/'><span>衝突 </span></a></h4></li><li><h4 id='moe-tts--無註冊---colab'><a href='https://huggingface.co/spaces/skytnt/moe-tts'><span>Moe TTS </span></a><span> /無註冊 / </span><a href='https://colab.research.google.com/drive/14Pb8lpmwZL-JI5Ub6jpG4sz2-8KS0kbS?usp=sharing'><span> COLAB </span></a></h4></li></ul><hr /><h2 id='▷語音更改-克隆'><span>▷語音更改 /克隆 </span></h2><ul><li><h4 id='applio--語音克隆-無註冊---discord----github'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://applio.org/'><span>Applio- </span></a></strong><span>語音克隆 /無註冊 / </span><a href='https://discord.gg/urxFjYmYYh'><span> Discord </span></a><span> / </span><a href='https://github.com/IAHispano/Applio'><span> github </span></a></h4></li><li><h4 id='權重---subreddit----discord-或-語音模型--不和諧----ai語音模型和指南'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://www.weights.gg/'><span>權重 </span></a></strong><span>/ </span><a href='https://www.reddit.com/r/weights/'><span> subreddit </span></a><span> / </span><a href='https://discord.gg/weights'><span> Discord </span></a><span>或 </span><a href='https://voice-models.com/'><span>語音模型 </span></a><span>/ </span><a href='https://discord.gg/3WJ8r6Bf5A'><span>不和諧 </span></a><span>-  AI語音模型和指南 </span></h4></li><li><h4 id='rvc-v2---rvc-v2語音克隆本地）---colab----discord'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/blob/main/docs/en/README.en.md'><span>RVC V2 </span></a></strong><span> -RVC V2語音克隆（本地） / </span><a href='https://colab.research.google.com/github/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/blob/main/Retrieval_based_Voice_Conversion_WebUI_v2.ipynb'><span> COLAB </span></a><span> / </span><a href='https://discord.gg/HcsmBBGyVk'><span> DISCORD </span></a></h4></li><li><h4 id='語音更換器---實時語音更換器w-okada）--指南---colab'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://github.com/w-okada/voice-changer/blob/master/docs_i18n/README_en.md'><span>語音更換器 </span></a></strong><span>- 實時語音更換器（W-OKADA） / </span><a href='https://rentry.co/VoiceChangerGuide'><span>指南 </span></a><span>/ </span><a href='https://colab.research.google.com/github/w-okada/voice-changer/blob/master/Realtime_Voice_Changer_on_Colab.ipynb'><span> COLAB </span></a></h4></li><li><h4 id='ilaria-rvc---rvc-v2語音克隆雲--colab-無註冊'><img src="https://bayimg.com/d172c64454c668e436b450093899ead0a9540788.jpg" referrerpolicy="no-referrer" alt="：星星："><span> </span><strong><a href='https://huggingface.co/spaces/TheStinger/Ilaria_RVC'><span>Ilaria RVC </span></a></strong><span> -RVC V2語音克隆（雲 / COLAB) /無註冊 </span></h4></li><li><h4 id='重播--rvc桌面應用程序---discord'><a href='https://www.tryreplay.io/'><span>重播 </span></a><span>-RVC桌面應用程序 / </span><a href='https://discord.gg/A5rgNwDRd4'><span> DISCORD </span></a></h4></li><li><h4 id='樹皮語音克隆---語音克隆-無註冊---colab----github'><a href='https://huggingface.co/spaces/kevinwang676/Bark-with-Voice-Cloning'><span>樹皮語音克隆 </span></a><span>- 語音克隆 /無註冊 / </span><a href='https://colab.research.google.com/github/KevinWang676/Bark-Voice-Cloning/blob/main/Bark_Voice_Cloning.ipynb'><span> colab </span></a><span> / </span><a href='https://github.com/KevinWang676/Bark-Voice-Cloning'><span> github </span></a></h4></li><li><h4 id='rvc推理hf--語音克隆-無註冊'><a href='https://huggingface.co/spaces/r3gm/RVC_HFv2'><span>RVC推理HF- </span></a><span>語音克隆 /無註冊 </span></h4></li><li><h4 id='xyphra--語音克隆---github'><a href='https://maia.zyphra.com/audio'><span>Xyphra- </span></a><span>語音克隆 / </span><a href='https://github.com/Zyphra/Zonos'><span> github </span></a></h4></li></ul><h4 id='資料來源fmhy-webgit-repo'><span>資料來源：FMHY Web＆Git Repo </span></h4><h2 id='享受學習和快樂學習'><strong><span>享受學習和快樂學習！</span></strong><span>  </span><img src="https://bayimg.com/f4c4b84f958139f076ab07b9be11b0c0de7740b5.jpg" referrerpolicy="no-referrer" alt="：心："></h2><p><span>jangow 20250225</span></p></div></div>
+</body>
+</html>
