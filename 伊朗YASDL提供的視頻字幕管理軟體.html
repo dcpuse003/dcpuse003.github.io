@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>伊朗YASDL提供的視頻字幕管理軟體</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='伊朗yasdl提供的視頻字幕管理軟體'><span>伊朗YASDL提供的視頻字幕管理軟體</span></h1><h2 id='subtitle-edit-4012--隨身版----字幕管理與編輯軟體'><a href='https://www.yasdl.com/46839/دانلود-subtitle-edit.html'><span>Subtitle Edit 4.0.12 + 隨身版 – 字幕管理與編輯軟體 </span></a></h2><p><a href='http://www.yasdl.com/46839/دانلود-subtitle-edit.html'><img src="https://bayimg.com/34eb48837debc981b8decc2da01e9250a7e73609.jpg" referrerpolicy="no-referrer" alt="下載 Subtitle Edit 3.4.9 Final + Portable - 字幕管理與編輯軟體"></a></p><p><span> </span></p><h2 id='下載字幕編輯'><strong><span>下載字幕編輯</span></strong><span> </span></h2><h4 id='字幕管理與編輯軟體'><span>字幕管理與編輯軟體 </span></h4><h4 id='subtitle-edit--4012--portable--是一款功能強大的字幕編輯器具備優秀軟體的大部分功能使用該軟體您可以輕鬆執行與所需影片協調字幕相關的所有任務以及直觀地檢查和編輯所需的字幕-subtitle-edit軟體的一大優點是可以在軟體內觀看影片時設定和編輯字幕這大大提高了使用該軟體的準確性'><span>Subtitle Edit  4.0.12 + Portable  是一款功能強大的字幕編輯器，具備優秀軟體的大部分功能。使用該軟體，您可以輕鬆執行與所需影片協調字幕相關的所有任務，以及直觀地檢查和編輯所需的字幕。 Subtitle Edit軟體的一大優點是可以在軟體內觀看影片時設定和編輯字幕，這大大提高了使用該軟體的準確性。 </span></h4><h4 id='該軟體支援大多數字幕格式包括-subidx-和-srt現在您可以從-yas-下載網站下載最新版本的-subtitle-edit-軟體'><span>該軟體支援大多數字幕格式，包括 Sub/idx 和 Srt。現在您可以從 Yas 下載網站下載最新版本的 Subtitle Edit 軟體。 </span></h4><h4 id='閱讀更多並下載中譯版'><a href='https://filedn.eu/lYLz2pdwCkjfUPJx5zXVHEz/Subtitle%20Edit%204.0.12%20%2B%20%E9%9A%A8%E8%BA%AB%E7%89%88%20%E2%80%93%20%E5%AD%97%E5%B9%95%E7%AE%A1%E7%90%86%E8%88%87%E7%B7%A8%E8%BC%AF%E8%BB%9F%E9%AB%94.html'><span>閱讀更多並下載中譯版</span></a></h4><h4 id='onion查看'><a href='http://bcloudwenjxgcxjh6uheyt72a5isimzgg4kv5u74jb2s22y3hzpwh6id.onion/dl/URI:CHK:2qns7gfwhstyoex4hxhndgpm3m:oymtqmkkcqmmp2tqi3okcgsgxtgwqhmhxkwgnhlgey3pg7xv767a:3:5:36318/Subtitle_Edit_4.0.12____________________________________________.html'><span>Onion查看</span></a><span> </span></h4><p>&nbsp;</p><h2 id='下載-subtitle-workshop-classic-633----字幕建立和管理軟體'><a href='https://www.yasdl.com/47899/دانلود-subtitle-workshop.html'><span>下載 Subtitle Workshop Classic 6.3.3 – 字幕建立和管理軟體 </span></a></h2><p><span> </span></p><p><a href='http://www.yasdl.com/47899/دانلود-subtitle-workshop.html'><img src="https://bayimg.com/5c190e190e8c7f098d674f4a588c8a151d2bad2c.jpg" referrerpolicy="no-referrer" alt="下載 Subtitle Workshop 6.0 - 字幕建立和管理軟體"></a></p><h2 id='下載字幕工作室'><strong><span>下載字幕工作室</span></strong><span> </span></h2><h4 id='字幕創建和管理軟體----波斯語支持'><span>字幕創建和管理軟體 – 波斯語支持 </span></h4><h4 id='subtitle-workshop-classic--633-您一定看過帶有字幕的電影但是這些字幕既令人愉快又令人抓狂因此如果它們沒有正確同步就會讓用戶感到困惑那麼解決方案是什麼我們是否應該花費數小時來尋找相容的-xerneus'><strong><span>Subtitle Workshop Classic</span></strong><span>  6.3.3 您一定看過帶有字幕的電影，但是這些字幕既令人愉快又令人抓狂，因此如果它們沒有正確同步，就會讓用戶感到困惑。那麼解決方案是什麼？我們是否應該花費數小時來尋找相容的 Xerneus？ </span></h4><h4 id='subtitle-wokshop-是一款功能強大且免費的工具可在這種情況下發揮作用事實上它是字幕編輯領域中一個功能強大且知名的程序您可以使用它將所需的字幕與電影同步該程式具有有序的使用者介面並配有拼字檢查器起初軟體環境可能看起來像是文字編輯的高級版本但您在使用程式時會發現它的黃金功能使用-subtitle-workshop-軟體您可以輕鬆編輯字幕並將其與所需的影片同步並在軟體本身的播放器中查看編輯的影片預覽'><strong><span>Subtitle Wokshop</span></strong><span> 是一款功能強大且免費的工具，可在這種情況下發揮作用。事實上，它是字幕編輯領域中一個功能強大且知名的程序，您可以使用它將所需的字幕與電影同步。該程式具有有序的使用者介面並配有拼字檢查器。起初，軟體環境可能看起來像是文字編輯的高級版本，但您在使用程式時會發現它的黃金功能。使用 Subtitle Workshop 軟體，您可以輕鬆編輯字幕並將其與所需的影片同步，並在軟體本身的播放器中查看編輯的影片預覽。 </span></h4><h4 id='subtitle-workshop-有一個拼字檢查器但此功能僅在安裝了此功能的-word-系統中才有效該程式還具有強大的翻譯工具實際上無法與第三方軟體相提並論您可以使用軟體本身輕鬆完成此操作'><span>Subtitle Workshop 有一個拼字檢查器，但此功能僅在安裝了此功能的 Word 系統中才有效。該程式還具有強大的翻譯工具，實際上無法與第三方軟體相提並論，您可以使用軟體本身輕鬆完成此操作。 </span></h4><h5 id='subtitle-workshop-軟體還有其他功能僅舉幾例廣泛的編輯選項多語言支援鍵盤快速鍵支援拖放功能該軟體經常被那些從事字幕領域的專業人士使用該軟體還-波斯語-支援-現在您可以-最新版本的subtitle-workshop軟體-從-yas-download-網站下載'><span>Subtitle Workshop 軟體還有其他功能，僅舉幾例：廣泛的編輯選項、多語言支援、鍵盤快速鍵支援、拖放功能。該軟體經常被那些從事字幕領域的專業人士使用。該軟體還 </span><strong><span>波斯語</span></strong><span> 支援 。現在您可以 </span><strong><span>最新版本的Subtitle Workshop軟體。</span></strong><span> 從 Yas Download 網站下載 </span></h5><p><span>  </span></p><h4 id='閱讀更多並下載中譯版-2'><a href='https://filedn.eu/lYLz2pdwCkjfUPJx5zXVHEz/Subtitle%20Workshop%20Classic%206.3.3%20%E2%80%93%20%E5%AD%97%E5%B9%95%E5%BB%BA%E7%AB%8B%E5%92%8C%E7%AE%A1%E7%90%86%E8%BB%9F%E9%AB%94.html'><span>閱讀更多並下載中譯版</span></a></h4><h4 id='onion查看-2'><a href='http://bcloudwenjxgcxjh6uheyt72a5isimzgg4kv5u74jb2s22y3hzpwh6id.onion/dl/URI:CHK:pmrwie7cmlis7ub6zbp7i64mhy:tv7f7hqcmkbudmlngg4vtorqwuar5sutki5xtlktvuiszeb63rca:3:5:28668/Subtitle_Workshop_Classic_6.3.3________________________________.html'><span>Onion查看</span></a></h4><p>&nbsp;</p><h2 id='下載-balabolka-2150745--隨身版----文字轉語音軟體'><a href='https://www.yasdl.com/21044/دانلود-نرم-افزار-balabolka.html'><span>下載 Balabolka 2.15.0.745 + 隨身版 – 文字轉語音軟體 </span></a></h2><p>&nbsp;</p><p><a href='http://www.yasdl.com/21044/دانلود-نرم-افزار-balabolka.html'><img src="https://bayimg.com/9a963ad01e37e8c49e450c3c3a64e7729acda0ce.jpg" referrerpolicy="no-referrer" alt="下載 Balabolka + 隨身版 - 文字轉語音軟體"></a></p><p><span> </span></p><h2 id='下載-balabolka'><strong><span>下載 Balabolka</span></strong><span> </span></h2><p><span> </span></p><h4 id='balabolka--2140680--便攜版-也許您遇到過這樣的情況您很累沒有足夠的時間同時忙於幾項任務無法寫任何東西-正確地拼寫所有單字非常準確地-balabolka-軟體為您解決了這個問題因為它可以在所需的文件上-這款軟體的有趣之處之一就是其電影字幕設計功能其神奇的用途讓電影字幕設計師的工作變得輕鬆'><span>Balabolka  2.14.0.680 + 便攜版 也許您遇到過這樣的情況：您很累，沒有足夠的時間，同時忙於幾項任務，無法寫任何東西。 正確地拼寫所有單字非常準確地、 Balabolka 軟體為您解決了這個問題，因為它可以在所需的文件上 。這款軟體的有趣之處之一就是其電影字幕設計功能，其神奇的用途讓電影字幕設計師的工作變得輕鬆。 </span></h4><h4 id='值得注意的是balabolka-軟體支援-wavmp3ogg-和-wma-音訊格式並可儲存-docrtfpdfodt-和-html-副檔名的檔案現在您可以從-yas-下載網站下載-balabolka-軟體'><span>值得注意的是，Balabolka 軟體支援 Wav、MP3、OGG 和 WMA 音訊格式，並可儲存 DOC、RTF、PDF、ODT 和 HTML 副檔名的檔案。現在您可以從 Yas 下載網站下載 Balabolka 軟體。 </span></h4><p><span> </span></p><h4 id='閱讀更多並下載中譯版-3'><a href='https://filedn.eu/lYLz2pdwCkjfUPJx5zXVHEz/Balabolka%202.15.0.745%20%2B%20%E9%9A%A8%E8%BA%AB%E7%89%88%20%E2%80%93%20%E6%96%87%E5%AD%97%E8%BD%89%E8%AA%9E%E9%9F%B3%E8%BB%9F%E9%AB%94.html'><span>閱讀更多並下載中譯版</span></a></h4><h4 id='onion查看-3'><a href='http://bcloudwenjxgcxjh6uheyt72a5isimzgg4kv5u74jb2s22y3hzpwh6id.onion/dl/URI:CHK:gdoyglarpbdk66a5edqgdxhtkq:zzu6maeqrq5esl7g32whnrmbnqmkblubd7r2pt6k6r7n55lxdesa:3:5:26379/Balabolka_2.15.0.745______________________________________.html'><span>Onion查看</span></a><span> </span></h4><p>&nbsp;</p><h2 id='下載-subtitle-translation-wizard-470一款用於翻譯電影和電視劇字幕的軟體'><a href='https://www.yasdl.com/2166/دانلود-subtitle-translation-wizard.html'><span>下載 Subtitle Translation Wizard 4.7.0，一款用於翻譯電影和電視劇字幕的軟體 </span></a></h2><p>&nbsp;</p><p><a href='http://www.yasdl.com/2166/دانلود-subtitle-translation-wizard.html'><img src="https://bayimg.com/7dc47310c71005c03d9c373d0dac98905f592d1a.jpg" referrerpolicy="no-referrer" alt="下載 Subtitle Translation Wizard 4.1，用於翻譯電影和電視劇字幕的軟體"></a></p><p><span> </span></p><h2 id='下載字幕翻譯嚮導'><strong><span>下載字幕翻譯嚮導</span></strong><span> </span></h2><h4 id='電影字幕翻譯軟體'><span>電影字幕翻譯軟體</span></h4><h4 id='subtitle-translation-wizard--470-是一款可用於創建和使用您自己的電影字幕的軟體使用此軟體您可以使用英文字幕將電影翻譯成您想要的任何語言而不再擔心電影沒有字幕'><strong><span>Subtitle Translation Wizard</span></strong><span>  4.7.0 是一款可用於創建和使用您自己的電影字幕的軟體。使用此軟體，您可以使用英文字幕將電影翻譯成您想要的任何語言，而不再擔心電影沒有字幕。 </span></h4><h4 id='電影的英文字幕-找到-其導入應用程序-將-只需單擊幾下-即可獲得您想要的任何語言的翻譯-版本並將其用作電影的字幕利用其功能該軟體可以翻譯輸入的字幕並為您製作完全相同的另一種語言版本非常適合您在網路上找不到所需語言字幕的影片現在您可以有用的字幕翻譯精靈軟體-從-yas-下載網站下載'><span>電影的英文字幕 </span><strong><span>找到</span></strong><span> 其導入應用程序 </span><strong><span>，將</span></strong><span> ，只需單擊幾下， </span><strong><span>即可獲得您想要的任何語言的翻譯</span></strong><span> 版本，並將其用作電影的字幕。利用其功能，該軟體可以翻譯輸入的字幕並為您製作完全相同的另一種語言版本，非常適合您在網路上找不到所需語言字幕的影片。現在您可以有用的字幕翻譯精靈軟體。 從 Yas 下載網站下載 </span></h4><p><span>  </span></p><h4 id='閱讀更多並下載中譯版-4'><a href='https://filedn.eu/lYLz2pdwCkjfUPJx5zXVHEz/Subtitle%20Translation%20Wizard%204.7.0%EF%BC%8C%E4%B8%80%E6%AC%BE%E7%94%A8%E6%96%BC%E7%BF%BB%E8%AD%AF%E9%9B%BB%E5%BD%B1%E5%92%8C%E9%9B%BB%E8%A6%96%E5%8A%87%E5%AD%97%E5%B9%95%E7%9A%84%E8%BB%9F%E9%AB%94.html'><span>閱讀更多並下載中譯版</span></a></h4><h4 id='onion查看-4'><a href='https://www.blackhost.xyz/srv/fup/uploads/Subtitle%20Translation%20Wizard%204.7.0.html'><span>Onion查看</span></a><span> </span></h4><p>&nbsp;</p><h2 id='下載-nuance-dragon-professional-individual-1530000141----語音轉文字引擎'><a href='https://www.yasdl.com/202903/دانلود-nuance-dragon.html'><span>下載 Nuance Dragon Professional Individual 15.30.000.141 – 語音轉文字引擎 </span></a></h2><p>&nbsp;</p><p><a href='https://www.yasdl.com/202903/دانلود-nuance-dragon.html'><img src="https://bayimg.com/f22ed8d685476a3a9181849b112905afce57d48d.jpg" referrerpolicy="no-referrer" alt="下載 Nuance Dragon Professional Individual 15.30.000.141 - 語音轉文字引擎"></a></p><p><span> </span></p><h2 id='下載-nuance-dragon-professional-individual'><strong><span>下載 Nuance Dragon Professional Individual</span></strong><span> </span></h2><h4 id='語音轉文字引擎'><span>語音轉文字引擎 </span></h4><h4 id='nuance-dragon-professional-individual--1530000141--是一款功能強大且專業的軟體名稱用於將語音英語）轉換為文本您可以在編寫書籍文章在搜尋引擎中輸入短語等各個領域受益該軟體配備了強大的語音轉文字引擎可以非常準確地將您的所有語音轉換為文字您需要做的就是在您的電腦或筆記型電腦上配備一個麥克風以便該程式可以接收您的聲音並透過處理它在您想要的環境中輸入等效的文字軟體的應用範圍很廣其中最重要的包括自動輸入長文字自動產生電影字幕用語音撰寫文章等等'><strong><span>Nuance Dragon Professional Individual</span></strong><span>  15.30.000.141  是一款功能強大且專業的軟體名稱，用於將語音（英語）轉換為文本，您可以在編寫書籍、文章、在搜尋引擎中輸入短語等各個領域受益。該軟體配備了強大的語音轉文字引擎，可以非常準確地將您的所有語音轉換為文字。您需要做的就是在您的電腦或筆記型電腦上配備一個麥克風，以便該程式可以接收您的聲音，並透過處理它，在您想要的環境中輸入等效的文字。軟體的應用範圍很廣，其中最重要的包括自動輸入長文字、自動產生電影字幕、用語音撰寫文章等等。 </span></h4><h4 id='目前有少數服務可用於從電影音訊中提取字幕即使對於沒有字幕的電影您也可以使用這些服務來提取所需的文字當前軟體憑藉其出色的音頻引擎可讓您提取製作字幕所需的文本並享受觀看具有準確和等效字幕的電影當然還應該補充一點該軟體的用途非常廣泛因此不可能在這裡全部討論總的來說如果您還需要一個智慧助理來自動輸入語音那麼這個工具可以以最佳的方式為您完成這項工作現在您可以透過直接連結從-yas-download-網站免費下載-nuance-dragon-professional-individual-軟體'><span>目前，有少數服務可用於從電影音訊中提取字幕，即使對於沒有字幕的電影，您也可以使用這些服務來提取所需的文字。當前軟體憑藉其出色的音頻引擎，可讓您提取製作字幕所需的文本，並享受觀看具有準確和等效字幕的電影。當然，還應該補充一點，該軟體的用途非常廣泛，因此不可能在這裡全部討論。總的來說，如果您還需要一個智慧助理來自動輸入語音，那麼這個工具可以以最佳的方式為您完成這項工作。現在您可以透過直接連結從 Yas Download 網站免費下載 Nuance Dragon Professional Individual 軟體。 </span></h4><p><span>  </span></p><h4 id='閱讀更多並下載中譯版-5'><a href='https://filedn.eu/lYLz2pdwCkjfUPJx5zXVHEz/Nuance%20Dragon%20Professional%20Individual%2015.30.000.141%20%E2%80%93%20%E8%AA%9E%E9%9F%B3%E8%BD%89%E6%96%87%E5%AD%97%E5%BC%95%E6%93%8E.html'><span>閱讀更多並下載中譯版</span></a></h4><h4 id='onion查看-5'><a href='http://www.blackhost.xyz/srv/fup/uploads/Nuance%20Dragon%20Professional%20Individual%2015.30.000.141%20%E2%80%93%20%E8%AA%9E%E9%9F%B3%E8%BD%89%E6%96%87%E5%AD%97%E5%BC%95%E6%93%8E.html'><span>Onion查看</span></a><span> </span></h4><p>&nbsp;</p><h2 id='下載-gaupol-12--隨身版----影片字幕編輯軟體'><a href='https://www.yasdl.com/140200/دانلود-gaupol.html'><span>下載 Gaupol 1.2 + 隨身版 – 影片字幕編輯軟體 </span></a></h2><p>&nbsp;</p><p><a href='http://www.yasdl.com/140200/دانلود-gaupol.html'><img src="https://bayimg.com/f77245b745a7f46c5bc324d3c9e17568fd61e43a.jpg" referrerpolicy="no-referrer" alt="下載 Gaupol 1.2 + 隨身版 - 影片字幕編輯軟體"></a></p><p><span> </span></p><h2 id='下載-gaupol'><strong><span>下載 Gaupol  </span></strong></h2><h4 id='視訊字幕編輯軟體'><span>視訊字幕編輯軟體 </span></h4><h4 id='gaupol--12--portable-是一款免費開源軟體的名稱用於在-windows-作業系統環境中建立編輯和安排文字字幕這個完全免費的專案在-linux-作業系統用戶中已經為人所知近-10-年現在隨著--windows--版本的發布它旨在在該作業系統用戶中重複這一成功眾所周知windows作業系統環境下的字幕檔案可以使用文字編輯器軟體進行編輯或排程但如果您還在尋找一種簡潔實用的方法來編輯字幕我們建議您不要錯過-gaupol--'><span>Gaupol  1.2 + Portable 是一款免費開源軟體的名稱，用於在 Windows 作業系統環境中建立、編輯和安排文字字幕。這個完全免費的專案在 Linux 作業系統用戶中已經為人所知近 10 年，現在，隨著  Windows  版本的發布，它旨在在該作業系統用戶中重複這一成功。眾所周知，Windows作業系統環境下的字幕檔案可以使用文字編輯器軟體進行編輯或排程。但如果您還在尋找一種簡潔實用的方法來編輯字幕，我們建議您不要錯過 Gaupol  。 </span></h4><h4 id='使用此程序您可以將各種已知格式的文字字幕匯入程式環境或建立一個全新的字幕檔案創作編輯安排以及與影片同步等功能是該軟體最重要的功能之一-網站-現在您可以從-yas-download下載最新版本的-gaupol-軟體'><span>使用此程序，您可以將各種已知格式的文字字幕匯入程式環境或建立一個全新的字幕檔案。創作、編輯、安排以及與影片同步等功能是該軟體最重要的功能之一。 網站 現在您可以從 Yas Download下載最新版本的 Gaupol 軟體。 </span></h4><p><span>  </span></p><h4 id='閱讀更多並下載中譯版-6'><a href='https://filedn.eu/lYLz2pdwCkjfUPJx5zXVHEz/Gaupol%201.2%20%2B%20%E9%9A%A8%E8%BA%AB%E7%89%88%20%E2%80%93%20%E5%BD%B1%E7%89%87%E5%AD%97%E5%B9%95%E7%B7%A8%E8%BC%AF%E8%BB%9F%E9%AB%94.html'><span>閱讀更多並下載中譯版</span></a><span> </span></h4><h4 id='onion查看-6'><a href='https://www.blackhost.xyz/srv/fup/uploads/Gaupol%201.2%20+%20%E9%9A%A8%E8%BA%AB%E7%89%88%20%E2%80%93%20%E5%BD%B1%E7%89%87%E5%AD%97%E5%B9%95%E7%B7%A8%E8%BC%AF%E8%BB%9F%E9%AB%94.html'><span>Onion查看</span></a><span> </span></h4><p>&nbsp;</p><h2 id='下載-womble-easysub-200108----字幕檔編輯軟體'><a href='https://www.yasdl.com/49895/دانلود-womble-easysub.html'><span>下載 Womble EasySub 2.0.0.108 – 字幕檔編輯軟體 </span></a></h2><p>&nbsp;</p><p><a href='http://www.yasdl.com/49895/دانلود-womble-easysub.html'><img src="https://bayimg.com/5c417b9de74b166e43a2d4d9b1378dcf08f5e6bb.jpg" referrerpolicy="no-referrer" alt="下載 Womble EasySub 2.0.0.108 - 字幕檔編輯軟體"></a></p><h2 id='下載-womble-easysub'><strong><span>下載 Womble EasySub</span></strong><span> </span></h2><h4 id='管理和編輯字幕檔案的軟體'><span>管理和編輯字幕檔案的軟體</span></h4><h4 id='womble-easysub-200108-是一款功能強大的字幕編輯器軟體它為用戶提供創建編輯和管理視訊檔案中的字幕文字的所有工具使用此程序您可以輕鬆編輯字幕檔案並以最精確的細節將其與所需的影片同步該程式中的播放器將允許您完全控製文字內容並以極低的錯誤率管理檔案'><strong><span>Womble EasySub 2.0.0.108</span></strong><span> 是一款功能強大的字幕編輯器軟體，它為用戶提供創建、編輯和管理視訊檔案中的字幕文字的所有工具。使用此程序，您可以輕鬆編輯字幕檔案並以最精確的細節將其與所需的影片同步。該程式中的播放器將允許您完全控製文字內容並以極低的錯誤率管理檔案。 </span></h4><h4 id='使用該程序您可以將-srt-字幕檔案匯入程序對其進行編輯和操作最後儲存它們現在您可以-最新版本的womble-easysub軟體從-yas-下載網站下載'><span>使用該程序，您可以將 SRT 字幕檔案匯入程序，對其進行編輯和操作，最後儲存它們。現在您可以 最新版本的Womble Easysub軟體。從 Yas 下載網站下載 </span></h4><p><span>  </span></p><h4 id='閱讀更多並下載中譯版-7'><a href='https://filedn.eu/lYLz2pdwCkjfUPJx5zXVHEz/Womble%20EasySub%202.0.0.108%20%E2%80%93%20%E5%AD%97%E5%B9%95%E6%AA%94%E7%B7%A8%E8%BC%AF%E8%BB%9F%E9%AB%94.html'><span>閱讀更多並下載中譯版</span></a></h4><h4 id='onion查看-7'><a href='https://www.blackhost.xyz/srv/fup/uploads/Womble%20EasySub%202.0.0.108%20%E2%80%93%20%E5%AD%97%E5%B9%95%E6%AA%94%E7%B7%A8%E8%BC%AF%E8%BB%9F%E9%AB%94.html'><span>Onion查看</span></a><span> </span></h4><p><span>jangow 20230112</span></p><p>&nbsp;</p></div></div>
+</body>
+</html>
